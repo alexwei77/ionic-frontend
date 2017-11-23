@@ -1,0 +1,326 @@
+page-invoice {
+  ion-header.header-md:after {
+    display: none !important;
+    background-image: none !important;
+  }
+  .address {
+    font-size: 13px;
+    float: left;
+  }
+  .address-apartment{
+    color:  color($colors, orange);
+  }
+  .wrapper-address{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:7px 16px 7px 60px;
+    background: white;
+    border-bottom: 1px solid #ebebeb;
+  }
+  span.address-other {
+    display: block;
+    margin-top: 10px;
+    color: color($colors, grey);
+  }
+  .orders-quantity{
+    color: color($colors, grey);
+  }
+  .header-date {
+    float: right;
+  }
+  ion-navbar {
+    border-bottom: 1px solid #ebebeb;
+    .menu {
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  
+    .back-button {
+      padding-left: 16px;
+    }
+    .toolbar-background {
+      background-color: color($colors, white);
+    }
+    .edit-address {
+      width: 12px;
+    }
+    .navbar-header {
+      margin-left: 10px;
+      display: flex;
+      justify-content: space-between;
+      margin-right: 16px;
+      margin-bottom: 4px;
+      align-items: center;
+    }
+    .header-house {
+      &-label {
+        margin-bottom: 4px;
+      }
+      &-line {
+        font-size: 1.7rem;
+      }
+    }
+    .header-right-area {
+      padding-right: 10px;
+      ion-icon {
+        width: 25px;
+        height: 25px;
+      }
+      .second {
+        margin-left: 15px;
+      }
+    }
+  }
+  #content {
+    background-color: color($colors, light);
+    .header {
+      padding-left: 30px;
+      padding-right: 20px;
+      text-align: center;
+      font-size: 13px;
+      color: grey;
+      ion-icon {
+        color: color($colors, orange);
+        vertical-align: middle;
+        font-size: 20px;
+        padding-right: 10px;
+      }
+    }
+    ion-list {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      .invoice-header {
+        box-shadow: 0 0 6px 1px color($colors, grey);
+        padding-left: 0px;
+        border-top: 0px;
+        height: 50px;
+        .item-inner {
+          border-bottom: 0;
+          padding-left: 15px;
+        }
+        ion-thumbnail {
+          margin: 0px;
+          height: 100%;
+          width: 50px;
+          float: left;
+          display: flex;
+          padding-left: 10px;
+          background: #ff7417;
+          padding-left: 0px;
+          min-width: inherit;
+          min-height: inherit;
+          img {
+            width: 70%;
+            margin-top: 10%;
+            margin: 0px;
+            height: auto;
+            height: auto;
+            -o-object-fit: contain;
+            object-fit: contain;
+            margin: 0 auto;
+          }
+        }
+        h2 {
+          color: color($colors, orange);
+        }
+        p {
+          color: grey;
+          font-size: 13px;
+        }
+        span {
+          color: color($colors, orange);
+        }
+      }
+      .dog-header {
+        box-shadow: 0 0 6px 1px color($colors, grey);
+        .left {
+          padding-right: 20px;
+          img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: contain;
+          }
+        }
+        h2 {
+          // color: color($colors, orange);
+        }
+        p {
+          color: grey;
+          font-size: 13px;
+        }
+        .right {
+          padding: 10px;
+          border-radius: 25px;
+          font-size: 12px;
+          background-color: color($colors, orange);
+          color: white;
+        }
+      }
+      .subheader {
+        box-shadow: 0 0 6px 1px color($colors, grey);
+        ion-item {
+          background-color: color($colors, light);
+          h2 {
+            color: color($colors, orange);
+            font-weight: bold;
+            padding-top: 5px;
+          }
+        }
+      }
+      .summary {
+        border-top: 1px solid $silver-border;
+        ion-item {
+          background: white;
+          span {
+            color: color($colors, orange);
+            font-size: 12px;
+          }
+        }
+      }
+      .total-summary {
+        border-top: 1px solid $silver-border;
+        ion-item {
+          background: white;
+          h2 {
+            color: black;
+          }
+          span {
+            color: color($colors, orange);
+            font-size: 16px;
+          }
+        }
+      }
+      .groceries-wrapper {
+        ion-item {
+          background: white;
+
+          ion-thumbnail {
+            img {
+              width: 55%;
+              margin: 0px !important;
+              object-fit: contain;
+            }
+          }
+        }
+        .tomato-price {
+          color: color($colors, orange);
+          padding-bottom: 10px;
+          font-size: 12px;
+        }
+      }
+      .promocode {
+        ion-item {
+          box-shadow: 0 0 6px 1px color($colors, grey);
+          text-align: center;
+          h2 {
+            margin-right: 50%;
+            font-size: 14px;
+            color: color($colors, orange);
+            text-align: left;
+          }
+          input[type="text"] {
+            width: 100%;
+            height: 25px;
+            font-size: 12px;
+            text-align: center;
+            min-height: 1.4rem;
+            border: 1px solid #ddd;
+            border-radius: 30px !important;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            padding-left: 10px;
+            font-size: 1.4rem;
+          }
+        }
+      }
+    }
+    .total-footer {
+      .left {
+        p {
+        }
+        h3 {
+        }
+      }
+      .right {
+        p {
+          color: color($colors, orange);
+        }
+        h3 {
+          color: color($colors, orange);
+        }
+      }
+    }
+  }
+  .pets-service {
+    width: 15%;
+    float: left;
+    position: relative;
+    left: -5px;
+  }
+  .pets-list-info {
+    width: 85%;
+    float: right;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+  }
+  .pets-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 85%;
+    float: right;
+    font-size: 1.3rem;
+    padding-left: 10px;
+    margin-top: 10px;
+    span {
+      color: #8e9093;
+      margin: 5px 0px;
+    }
+    span:nth-child(2n) {
+      text-align: right;
+    }
+  }
+  .margintoplist {
+    margin-top: 20px;
+  }
+  .count-items {
+    color: color($colors, orange);
+  }
+  .house-list {
+    float: left;
+    width: 75%;
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    img {
+      margin: 0 5px 0px 10px;
+    }
+  }
+  .house-price {
+    float: right;
+    width: 25%;
+    text-align: right;
+    color: #ff7417;
+    font-size: 16px;
+    padding-right: 15px;
+    padding-top: 16px;
+  }
+  .subheader-house {
+    background: white;
+    width: 100%;
+    min-height: 55px;
+    margin-bottom: 10px;
+  }
+  ion-footer {
+    button.button-block {
+      margin: 0px;
+      ion-icon {
+        margin-left: 10px;
+      }
+    }
+  }
+}

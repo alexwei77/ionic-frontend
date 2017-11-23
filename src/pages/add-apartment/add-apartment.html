@@ -1,0 +1,57 @@
+<ion-header>
+
+  <ion-navbar #navBar>
+    <div class="navbar-header">
+      <div class="header-address">
+        <div>
+          <span class="header-address-line">Add Apartment</span>
+        </div>
+      </div>
+    </div>
+  </ion-navbar>
+
+  <ion-item class="page-header-item" no-lines>
+    <div class="page-header">
+      <span class="page-header-name">
+        <span class="page-header-name-text">Your Building</span>
+      </span>
+    </div>
+  </ion-item>
+</ion-header>
+
+
+<ion-content padding id="content" no-lines>
+    <ion-card>
+      <ion-card-header class="text_center  ">
+      </ion-card-header>
+      <ion-card-content class="margintop15 text_center">
+       <img src="assets/icon/Common/noaddressfound.png" style="width: 130px !important;display: initial !important;">
+       <p class="text_center" >Couldn't find your building </p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header class="text_center colorOrange whitespacenormal">
+       <ion-icon name="ios-alert"></ion-icon> Fill out this form to be notified when we're in your building
+      </ion-card-header>
+      <ion-card-content class="margintop15">
+        <input class="inputFormfield" type="text" placeholder="Property Name" [(ngModel)]="addAddressData.propertyName" />
+        <input class="inputFormfield" type="text" placeholder="Your Name" [(ngModel)]="addAddressData.personName"/>
+        <input class="inputFormfield" type="text" placeholder="Phone Number" [(ngModel)]="addAddressData.phone"/>
+        <input class="inputFormfield" type="text" placeholder="Email" [(ngModel)]="addAddressData.email"/>
+      </ion-card-content>
+    </ion-card>
+</ion-content>
+
+<ion-footer>
+  <!--<div class="cart-btn" (click)="goToCheckOut()">
+    <img src="assets/icon/Common/_Cart.png" />
+    <div>
+      <span>Review Cart</span>
+    </div>
+  </div>-->
+  <!--<div class="proceed-btn" (click)="gotoPayment()">
+   Submit
+  </div>-->
+  <button ion-button full (click)="submitForm()">Submit</button>
+</ion-footer>

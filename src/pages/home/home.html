@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar #navBar>
+    <button ion-button menuToggle>
+      <span class="menu">
+        <img src="../../assets/icon/Common/_Menu.png" />
+      </span>
+    </button>
+
+    <div class="navbar-header">
+      <div class="header-address">
+        <div *ngIf="!isSearch && isLoggedIn">
+          <span class="header-address-line">Menu</span>
+        </div>
+        <div *ngIf="!isLoggedIn">
+            <span class="header-address-line" (click)="login()">Login</span>
+          </div>
+      </div>
+      <!-- <span class="header-right-area">
+        <ion-searchbar [hidden]="!isSearch" (ionBlur)="toggle()"></ion-searchbar>
+        <img *ngIf="!isSearch" (click)="toggle();SetSearchBarFocus()" src="assets/icon/Common/Search%20Inactive.png" /> -->
+        <!-- <img *ngIf="!isSearch" src="assets/icon/Common/Cart.png" (click)="gotoCartPage()" /> -->
+        <!-- <ion-badge>{{cartService.itemsinCart}}</ion-badge>
+      </span> -->
+    </div>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="content">
+  <super-tabs #homeTabs height="100%" [rootNavCtrl]="navCtrl">
+    <super-tab [tabRoot]="dealsRoot" [navParams]="dealsParams" title="Bundle deals"></super-tab>
+    <super-tab [tabRoot]="productRoot" [navParams]="productParams" title="Products"></super-tab>
+    <super-tab [tabRoot]="productRoot" [navParams]="serviceParams" title="Services"></super-tab>
+
+  </super-tabs>
+</ion-content>

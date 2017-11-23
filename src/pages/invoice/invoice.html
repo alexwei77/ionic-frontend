@@ -1,0 +1,230 @@
+<ion-header>
+  <ion-navbar #navBar>
+    <button ion-button menuToggle>
+      <span class="menu">
+        <img src="assets/icon/Common/_Menu.png" />
+      </span>
+    </button>
+    <div class="navbar-header">
+      <div class="header-house">
+        <div>
+          <span class="header-house-line">Order Summary</span>
+        </div>
+        <!-- <span class="orders-quantity">
+            2 Orders
+        </span> -->
+      </div>
+<!--
+      <span class="header-right-area">
+        <ion-icon>
+          <img src="assets/icon/Common/Search%20Inactive.png" />
+        </ion-icon>
+      </span> -->
+    </div>
+  </ion-navbar>
+  <div class="wrapper-address">
+    <div class="address">
+      <span class="address-apartment">
+        {{selectedAddress.apt}}
+      </span>
+      <span class="address-other">
+        {{selectedAddress.address}}
+      </span>
+    </div>
+    <div class="header-date">
+      {{getDayFromDate(orderDate.date)}}
+    </div>
+  </div>
+</ion-header>
+<ion-content id="content">
+  <!--Pet Services start-->
+  <div >
+    <!--header list start-->
+    <ion-list padding-left padding-right *ngIf="petServiceList.length">
+      <ion-item class="invoice-header">
+        <ion-thumbnail item-left>
+          <img src="../../assets/icon/Common/orange_icon.png">
+        </ion-thumbnail>
+        <h2>Pet Services</h2>
+      </ion-item>
+    </ion-list>
+    <!--header list finish-->
+    <ion-list padding-left padding-right *ngFor="let petService of petServiceList; let i=index">
+      <div class="subheader" *ngFor="let pet of petService.petdata">
+        <!-- List items start -->
+        <div *ngIf="pet.service.name == 'Dog Walking'">
+          <div class="groceries-wrapper">
+            <ion-item no-lines text-wrap>
+
+              <img class="pets-service" src="../../assets/icon/Common/dog_walk_1.png">
+              <div class="pets-list-info">
+                <h3>
+                  Dog Walking
+                </h3>
+                <span class="count-items"></span>
+              </div>
+              <!--Dogs list start-->
+              <div class="pets-list" >
+                  <div >
+                <span>
+                    {{pet.pet.name}}
+                </span>
+                <span>
+                  $ {{pet.service.price}}
+                </span>
+
+                </div>
+              </div>
+              <!--Dogs list finish-->
+                <div style="position:absolute;right:10px">
+                    <!-- <div class="showCartDate" (click)="goToDate(petService, i)">Select Time</div> -->
+                    <div class="showCartDate" >{{!(pet?.jsDate) || (pet?.jsDate) == '' ? 'Select Time' : getDayFromDate(pet.jsDate) }}
+                    </div>
+
+                  <!-- <ion-row style="justify-content:center">
+                    <div class="text_orange bookingDate">{{petService?.date?.day}}.{{petService?.date?.month}}.{{petService?.date?.year}}</div>
+                  </ion-row> -->
+
+                    <div class="text_orange bookingDate" style="margin-left: 0px;font-size: 15px;color:#c2c2c2;">
+                      <span class="text-right">
+                        10am - 5pm
+                      </span>
+                    </div>
+                  </div>
+            </ion-item>
+          </div>
+
+        <!-- List items Finish -->
+        <div class="total-summary">
+          <ion-item no-lines>
+            <h3>Total Price</h3>
+            <span item-right>$ {{pet.service.price}}</span>
+          </ion-item>
+        </div>
+      </div>
+    </div>
+    <!-- </ion-list>
+    <ion-list padding-left padding-right> -->
+      <div class="subheader" *ngFor="let pet of petService.petdata">
+        <!-- List items start -->
+        <div *ngIf="pet.service.name == 'Pet Visit'">
+          <div class="groceries-wrapper">
+            <ion-item no-lines text-wrap>
+              <img class="pets-service" src="../../assets/icon/Common/dog_walk_2.png">
+              <div class="pets-list-info">
+                <h3>
+                  Pet Visit
+                </h3>
+                <span class="count-items"></span>
+              </div>
+              <!--Dogs list start-->
+              <div class="pets-list">
+                  <div>
+                <span>
+                  {{pet.pet.name}}
+                </span>
+                <span>
+                  $ {{pet.service.price}}
+                </span>
+              </div>
+              </div>
+              <div style="position:absolute;right:10px">
+                  <!-- <div class="showCartDate" (click)="goToDate(petService, i)">Select Time</div> -->
+                  <div class="showCartDate" >{{!(pet?.jsDate) || (pet?.jsDate) == '' ? 'Select Time' : getDayFromDate(pet.jsDate) }}
+                  </div>
+
+                <!-- <ion-row style="justify-content:center">
+                  <div class="text_orange bookingDate">{{petService?.date?.day}}.{{petService?.date?.month}}.{{petService?.date?.year}}</div>
+                </ion-row> -->
+
+                  <div class="text_orange bookingDate" style="margin-left: 0px;font-size: 15px;color:#c2c2c2;">
+                    <span class="text-right">
+                      10am - 5pm
+                    </span>
+                  </div>
+                </div>
+              <!--Dogs list finish-->
+            </ion-item>
+          </div>
+
+        <!-- List items Finish -->
+        <div class="total-summary">
+          <ion-item no-lines>
+            <h3>Total Price</h3>
+            <span item-right>$ {{pet.service.price}}</span>
+          </ion-item>
+        </div>
+      </div>
+      </div>
+    </ion-list>
+  </div>
+  <!--Pet Services finish-->
+  <!--House Cleaning start-->
+  <div class="margintoplist" *ngIf="housecleaingList.length != 0">
+    <!--header list start-->
+    <ion-list padding-left padding-right>
+      <ion-item class="invoice-header">
+        <ion-thumbnail item-left>
+          <img src="../../assets/icon/Common/house_orange.png">
+        </ion-thumbnail>
+        <h2>House Cleaning</h2>
+      </ion-item>
+    </ion-list>
+    <!--header list finish-->
+    <ion-list padding-left padding-right *ngFor="let item of housecleaingList; let i=index">
+      <div class="subheader subheader-house" style="position:relative">
+        <!-- List items start -->
+        <div class="house-list">
+          <img src="../../assets/icon/Common/bed.png" alt="">
+          <span>
+              {{item.bedroom}} bdrs
+          </span>
+          <img src="../../assets/icon/Common/bathroom.png" alt="">
+          <span>
+              {{item.bathroom}} bths
+          </span>
+        </div>
+        <div class="house-price">
+          $ {{item.total}}
+        </div>
+        <!-- List items Finish -->
+        <div style="position:absolute;right:80px;top:10px">
+            <!-- <div class="showCartDate" (click)="goToDate(petService, i)">Select Time</div> -->
+            <div class="showCartDate">{{!(item?.jsDate) || (item?.jsDate) == '' ? 'Select Time' : getDayFromDate(item.jsDate)       }}
+              </div>
+
+          <!-- <ion-row style="justify-content:center">
+            <div class="text_orange bookingDate">{{petService?.date?.day}}.{{petService?.date?.month}}.{{petService?.date?.year}}</div>
+          </ion-row> -->
+
+            <div class="text_orange bookingDate" style="margin-left: 0px;font-size: 15px;color:#c2c2c2;">
+              <span class="text-right">
+                10am - 5pm
+              </span>
+            </div>
+          </div>
+      </div>
+    </ion-list>
+  </div>
+  <!--House Cleaning finish-->
+</ion-content>
+<ion-footer>
+  <div class="total-footer">
+    <ion-item no-lines>
+      <span item-left class="left">
+        <h3>
+          Invoice Total
+        </h3>
+      </span>
+      <span item-right class="right">
+        <h3>
+          $ {{totalprice}}
+        </h3>
+      </span>
+    </ion-item>
+  </div>
+  <button ion-button block [navPush]="pushPage">
+    Proceed to checkout
+    <ion-icon ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+  </button>
+</ion-footer>

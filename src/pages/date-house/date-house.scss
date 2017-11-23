@@ -1,0 +1,334 @@
+page-date-house {
+  ion-navbar {
+    border-bottom: 1px solid $silver-border;
+    .back-button {
+      // padding-left: 16px;
+    }
+    .toolbar-background {
+      background-color: color($colors, white);
+    }
+    .header-address {
+      &-line {
+        color: color($colors, orange);
+      }
+    }
+  }
+  .page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 16px;
+    &-name {
+      display: flex;
+      align-items: center;
+      &-text {
+        margin-left: 16px;
+      }
+    }
+    &-item {
+      padding: 0;
+    }
+  }
+  #content {
+    background-color: color($colors, light);
+    .scroll-content {
+      // padding-top: 0px;
+    }
+    .calendar {
+      button {
+        text-align: center;
+        p {
+          padding-top: 10px;
+          vertical-align: middle;
+        }
+      }
+      .range {
+        .left {
+          width: 25%;
+          padding-left: 10px;
+          p {
+            font-size: 12px;
+            color: #000;
+          }
+        }
+        .right {
+          right: 0px;
+          width: 80%;
+        }
+        button {
+          // padding: 0px;
+          // margin: 0px;
+          float: right;
+          font-size: 9px; // width: 40%;
+        }
+      }
+    }
+    ion-list {
+      border: none;
+      box-shadow: 0 0 6px 1px color($colors, grey);
+      ion-list-header {
+        margin: 0px;
+        border-bottom: 1px solid #dedede; // padding: 0;
+        color: black;
+        height: 50px;
+        background: white;
+      }
+      ion-item {
+        margin: 0px;
+        border-bottom: 1px solid #dedede; // padding: 0;
+            padding-left: 0px;
+        .item-inner {
+          border: 0;
+            padding-right: 0px;
+        }
+        ion-grid {
+          width: 100%;
+        }
+      }
+      .date {
+        ion-label {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+               margin: 0px 0px 0px 0px;
+        }
+        img {
+          // padding: 0 40px;
+        }
+        span {
+          display: inline-block;
+          margin-top: 5px;
+          text-decoration: none;
+        }
+      }
+      .color-cost {
+        display: flex;
+        margin: 0 0px;
+        font-size: 12px;
+        text-align: center;
+        span {
+          color: color($colors, grey);
+          padding: 0 10px 0 5px;
+        }
+        &-pan {
+          padding: 0 25px;
+          ion-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+       
+          }
+        }
+        &-yellow {
+          width: 10px;
+          height: 10px;
+          background-color: #ffa500;
+          border-radius: 50%;
+          margin-top: 5px;
+        }
+        &-orange {
+          width: 13px;
+          height: 13px;
+          background-color: color($colors, primary);
+          border-radius: 50%;
+          margin-top: 3px;
+        }
+        &-pink {
+          width: 16px;
+          height: 16px;
+          background-color: deeppink;
+          border-radius: 50%;
+          margin-top: 2px;
+        }
+        &-red {
+          width: 20px;
+          height: 20px;
+          background-color: red;
+          border-radius: 50%;
+        }
+      }
+      .time {
+        text-align: center;
+        border-radius: 10px;
+        padding: 2px 0;
+        span {
+          color: white;
+          font-size: 12px;
+        }
+        img {
+          width: 15px;
+        }
+        &-orange {
+          background-color: color($colors, primary);
+        }
+        &-yellow {
+          background-color: #ffa500;
+        }
+        &-pink {
+          background-color: deeppink;
+        }
+        &-red {
+          background-color: red;
+        }
+      }
+      .show-calendar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      ion-avatar {
+        margin-left: 10px;
+      }
+      .image {
+        margin: 0px;
+        padding: 0px;
+        background: white;
+        .cal {
+          // height: 50px;
+          width: 50px;
+          float: left;
+        }
+        .text {
+          line-height: 35px;
+        }
+        .content {
+          background-color: red;
+          height: 150px;
+          width: 100%;
+        }
+      }
+      .subscribe {
+        background-color: color($colors, light);
+        text-align: center;
+        .inputs {
+          padding-top: 10px;
+          select {
+            padding: 0px 5px 0px 5px;
+            border-radius: 25px;
+            background: white;
+            height: 30px;
+            width: 100px;
+            color: color($colors, orange);
+            font-size: 13px;
+            padding-left: 15px;
+          }
+        }
+      }
+    }
+  }
+  ion-footer {
+    .cart-btn {
+      display: flex;
+      padding: 10px 30px;
+      div {
+        padding-top: 6px;
+      }
+      span {
+        color: color($colors, primary);
+        font-size: 1.5em;
+        margin-left: 20px;
+      }
+    }
+    .cart-btn:hover {
+      background-color: color($colors, grey);
+    }
+    .proceed-btn {
+      padding: 10px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: color($colors, primary);
+      color: white;
+      font-size: 14px;
+      &-right-item {
+        display: flex;
+        div {
+          padding-top: 6px;
+          margin-right: 10px;
+        }
+        ion-icon {
+          // margin-bottom: 20px;
+          right: 20px;
+          bottom: 11px;
+          position: absolute;
+        }
+      }
+    }
+    .proceed-btn::hover {
+      background-color: color($colors, orange);
+    }
+    .subscribe {
+      background-color: color($colors, orange);
+    }
+  }
+  .pet-datepicker {
+    .mydp {
+      .selector {
+        margin: 0px;
+        border: none;
+        .weekdaytitle {
+          padding: 13px 4px;
+          background-color: color($colors, light);
+          color: color($colors, grey);
+          font-size: 13px;
+        }
+        .header {
+          background: none;
+          margin-top: 5px;
+          .headerbtncell,
+          .headerbtn {
+            background: none;
+          }
+        }
+        .daycell,
+        .monthcell,
+        .yearcell {
+          padding: 0px;
+          text-align: center;
+          background: none;
+          outline: none;
+          &.selectedday,
+          &.selectedmonth,
+          &.selectedyear {
+            .datevalue,
+            .monthvalue,
+            .yearvalue {
+              background-color: color($colors, orange);
+              color: color($colors, white);
+            }
+          }
+          &.disabled {
+            .datevalue,
+            .monthvalue,
+            .yearvalue {
+              color: color($colors, grey);
+            }
+          }
+          .datevalue,
+          .monthvalue,
+          .yearvalue {
+            border-radius: 50%;
+            display: inline-block;
+            background: none;
+            color: color($colors, orange);
+          }
+          .datevalue {
+            height: 30px;
+            line-height: 20px;
+            width: 30px;
+          }
+          .monthvalue,
+          .yearvalue {
+            height: 35px;
+            width: 35px;
+            line-height: 35px;
+          }
+        }
+      }
+      .disabled {
+        background: none;
+
+      }
+    }
+  }
+}

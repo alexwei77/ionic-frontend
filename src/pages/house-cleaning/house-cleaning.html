@@ -1,0 +1,174 @@
+<ion-header>
+
+  <ion-navbar #navBar>
+    <button ion-button menuToggle>
+      <span class="menu">
+        <img src="assets/icon/Common/_Menu.png" />
+      </span>
+    </button>
+    <div class="navbar-header">
+      <div class="header-house">
+        <div>
+          <span class="header-house-line">House Cleaning</span>
+        </div>
+      </div>
+      <span class="header-right-area">
+        <ion-icon>
+          <img src="assets/icon/Common/Search%20Inactive.png" />
+        </ion-icon>
+        <ion-icon>
+          <img src="assets/icon/Common/Cart.png" class="second" />
+        </ion-icon>
+      </span>
+    </div>
+  </ion-navbar>
+
+  <ion-item class="page-header-item">
+    <div class="page-header">
+      <span class="page-header-name">
+        <span class="page-header-name-text">Tell Us About Your Place</span>
+      </span>
+    </div>
+  </ion-item>
+
+</ion-header>
+
+
+
+<ion-content id="content">
+  <ion-list>
+
+
+    <ion-item class="place">
+      <ion-grid>
+        <ion-row>
+          <ion-icon class="plus-sign">
+            <img src="assets/icon/Common/bed.png" />
+          </ion-icon>
+          <ion-col width-15>
+            <p>Bedrooms</p>
+          </ion-col>
+          <ion-col *ngFor="let item of bedroomInfo?.prices" width-11 (click)="bedroom(item)" [ngClass]="{'select':selectedBedroom==item.quantity}">{{item.quantity}}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+
+    <ion-item class="place">
+      <ion-grid>
+        <ion-row>
+          <ion-icon class="plus-sign">
+            <img src="assets/icon/Common/bath.png" />
+          </ion-icon>
+          <ion-col width-15>
+            <p>Bathrooms</p>
+          </ion-col>
+          <ion-col *ngFor = "let item of bathroomInfo?.prices" width-11 (click)="bathroom(item)" [ngClass]="{'select':selectedBathroom==item.quantity}">{{item.quantity}}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+    <div class="item">
+
+      <div class="header">
+        <span class="left">
+
+          <h3>
+            Standard surface cleaning
+          </h3>
+          <p>
+            Please Provide clear and Animal Free Area to perform Cleaning
+          </p>
+
+        </span>
+        <span class="right">
+          <p>
+            $ {{this.bedroomPrice + this.bathroomPrice}}
+          </p>
+        </span>
+      </div>
+
+
+      <div class="info">
+        <div class="info-header" (click)="toggleGroup(item)">
+          <h3>
+            What's included
+            <ion-icon [name]="isGroupShown(item) ? 'ios-arrow-up' : 'ios-arrow-down'"></ion-icon>
+          </h3>
+        </div>
+
+
+        <ion-row class="services" *ngIf="isGroupShown(item)">
+          <ion-list>
+            <div *ngFor="let item of whatsIncludedData">
+            <div class="header">
+              <img [src]="item.image" />
+              <span>{{item.title}}</span>
+            </div>
+
+            <ul class="wrapContent" *ngFor="let i of item.content">
+              <li>{{i}}</li>
+            </ul>
+            </div>
+
+          </ion-list>
+
+
+        </ion-row>
+
+
+        <ion-item text-wrap no-lines class="note">
+          <span item-left>
+            <ion-icon name="ios-alert-outline"></ion-icon>
+          </span>
+          <span>
+            Please Note,Bellom does not offer deep Cleaning. We reserve the right to cancel order and refund your payment if your apartment
+            require more attantion
+          </span>
+        </ion-item>
+      </div>
+
+
+    </div>
+
+    <!-- <ion-item> -->
+    <!-- <div class="manual" padding>
+
+      <div class="right" padding (click)="openManual()">
+        <p class="plus-sign">
+          <ion-icon name="md-checkbox"></ion-icon>
+        </p>
+        <h5>
+          Manual
+        </h5>
+        <p>
+          Some text is here just need to clarify what
+        </p>
+      </div>
+
+      <span class="left" padding (click)="openRecommended()">
+        <p class="plus-sign">
+          <ion-icon name="star"></ion-icon>
+        </p>
+        <h5>
+          Recommended
+        </h5>
+        <p>
+          Some text is here just need to clarify what
+        </p>
+      </span>
+    </div> -->
+    <!-- </ion-item> -->
+
+  </ion-list>
+
+</ion-content>
+
+
+<ion-footer no-border no-shadow>
+
+  <div ion-button full class = "btn" (click)="Proceed()">Proceed
+    <ion-icon name="ios-arrow-forward"></ion-icon>
+  </div>
+
+</ion-footer>

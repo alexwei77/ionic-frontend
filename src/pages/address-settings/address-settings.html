@@ -1,0 +1,46 @@
+<ion-header>
+
+  <ion-navbar #navBar>
+    <button ion-button menuToggle>
+      <span class="menu">
+        <img src="assets/icon/Common/_Menu.png" />
+      </span>
+    </button>
+    <div class="navbar-header">
+      <div class="header-house">
+        <div>
+          <span class="header-house-line">Settings</span>
+        </div>
+      </div>
+    </div>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content [ngClass]="{'footerContent': (isAddAddress==true),'content': (isAddAddress==false)}">
+
+  <ion-card>
+    <ion-searchbar placeholder="Tab to start searching.." (ionInput)="searchAddress($event)"></ion-searchbar>
+  </ion-card>
+
+  <ion-card>
+    <div class="borderbottomgray" *ngFor="let item of filterAddresses;let i=index;" [ngClass]="{'active':activeStatus==i}">
+      <ion-card-header class="colorOrange" (click)="selectAdd(item,i);">
+        {{ item.name }}
+        <p> {{ item.address }}</p>
+      </ion-card-header>
+    </div>
+  </ion-card>
+
+  <ion-card *ngIf="noResult==true && filterAddresses.length<=0">
+    <div class="borderbottomgray">
+      <ion-card-header class="colorOrange text_center">
+        No Result Found
+      </ion-card-header>
+      <ion-card-content>
+        <button ion-button block color="primary" (click)="goAddbuilding()">Add Apartment</button>
+      </ion-card-content>
+    </div>
+  </ion-card>
+
+</ion-content>

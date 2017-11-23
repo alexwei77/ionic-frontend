@@ -1,0 +1,71 @@
+<!--
+  Generated template for the ProductListByCategory page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar #navBar>
+        <div class="navbar-header">
+            <div class="header-address">
+                <div *ngIf="!isSearch">
+                    <span class="header-address-line">Seattle</span>
+                    <img src="assets/icon/Common/Pencil.png" class="edit-address" />
+                </div>
+            </div>
+            <span class="header-right-area">
+                <ion-searchbar [hidden]="!isSearch" (ionBlur)="toggle()"  [(ngModel)]="searchService.search" ></ion-searchbar>
+                    <img *ngIf="!isSearch" (click)="toggle();SetSearchBarFocus()" src="assets/icon/Common/Search%20Inactive.png" />
+                    <img  *ngIf="!isSearch" src="assets/icon/Common/Cart.png" (click)="gotoCartPage()" />
+                    <ion-badge *ngIf="!isSearch">{{cartService.itemsinCart}}</ion-badge>
+            </span>
+        </div>
+    </ion-navbar>
+
+    <ion-item class="shop-item-header-item">
+        <div class="shop-item-header">
+            <span class="shop-item-header-name">
+                <img src="assets/icon/Common/Calendar.png" />
+                <span class="shop-item-header-name-text">{{navParams.data.shop.name}}</span>
+            </span>
+            <span class="shop-item-change-link" (click)="gotoShopListPage()">
+                Change Store
+
+            </span>
+        </div>
+    </ion-item>
+</ion-header>
+
+
+<ion-content padding id="content">
+    <super-tabs height="100%" scrollTabs #categoryTabs>
+        <super-tab [tabRoot]="root" [navParams]="{category: navParams.data.category, subcategory: subcategory, shop: navParams.data.shop}"
+            [title]="subcategory.name" *ngFor="let subcategory of navParams.data.subcategories"></super-tab>
+    </super-tabs>
+
+</ion-content>
+
+<ion-footer>
+    <div *ngIf="modify==false">
+        <button ion-button full primary (click)="gotoDateTimePage()">Proceed</button>
+    </div>
+    <div *ngIf="modify">
+        <div class="btn">
+            <span>Subtotal (5 items)</span>
+            <div class="btn-right-item">
+                <div>
+                    <span>$ 80</span>
+                </div>
+            </div>
+        </div>
+        <div class="btn proceed" (click)="gotoAddressPage()">
+            <span>Continue Shopping</span>
+            <div class="btn-right-item">
+                <div>
+                    <span>Proceed to checkout</span>
+                </div>
+                <img src="assets/icon/Common/Next White.png" />
+            </div>
+        </div>
+    </div>
+</ion-footer>

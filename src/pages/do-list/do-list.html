@@ -1,0 +1,55 @@
+<!--
+  Generated template for the DoListPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <span class="menu">
+        <img src="assets/icon/Common/_Menu.png" />
+      </span>
+    </button>
+    <div class="navbar-header">
+      <div class="header-address">
+        <div *ngIf="!isSearch">
+          <span class="header-address-line">To Do List</span>
+        </div>
+      </div>
+      <span class="header-right-area">
+        <ion-searchbar [hidden]="!isSearch" (ionBlur)="toggle()"></ion-searchbar>
+        <img *ngIf="!isSearch" (click)="toggle();SetSearchBarFocus()" src="assets/icon/Common/Search%20Inactive.png" />
+        <!-- <img *ngIf="!isSearch" src="assets/icon/Common/Cart.png" (click)="gotoCartPage()" /> -->
+      </span>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding id="productsContent">
+  <ion-list>
+    <ion-item *ngFor="let item of items; let i=index" class="product-item" (click)="browse(item)" [hidden]="!item.name">
+      <h2>
+        {{item.name}}
+      </h2>
+      <div class="product-item-content">
+        {{item.description}}
+      </div>
+      <a class="product-item-link">{{item.title}}
+        <img src="assets/icon/Common/Next.png" class="product-item-next-img" />
+      </a>
+      <div item-right>
+        <img [src]="item.image" class="product-item-img" />
+        <ion-icon *ngIf="checked[i]" align="center" color="orange" name="checkmark"></ion-icon>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer no-border>
+
+  <div ion-button full class="btn" (click)="goToCart()">Check Out   {{totalprice}} $
+    <ion-icon name="ios-arrow-forward"></ion-icon>
+  </div>
+
+</ion-footer>

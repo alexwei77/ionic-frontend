@@ -1,0 +1,38 @@
+<ion-header>
+
+  <ion-navbar #navBar>
+    <div class="navbar-header">
+      <div class="header-address">
+        <div>
+          <span class="header-address-line">Payment</span>
+        </div>
+      </div>
+    </div>
+  </ion-navbar>
+
+  <ion-item class="page-header-item">
+    <div class="payment-header">
+      <p>
+        Total ammount
+      </p>
+      <h3 class="payment-header-text1">$ {{totalAmount}}.00</h3>
+    </div>
+  </ion-item>
+
+  <ion-item class="page-header-item">
+    <div class="page-header">
+      <span class="page-header-name">
+        <img src="assets/icon/Common/Card.png" />
+        <span class="page-header-name-text">Select your preffered payment method</span>
+      </span>
+    </div>
+  </ion-item>
+
+</ion-header>
+
+<ion-content padding id="content">
+  <!-- <super-tabs *ngIf="tabs_loaded" height="100%" #paymentTabs> -->
+  <super-tabs *ngIf="tabs_loaded" height="100%">
+    <super-tab [tabRoot]="tab.page" [title]="tab.title" *ngFor="let tab of tabs"></super-tab>
+  </super-tabs>
+</ion-content>

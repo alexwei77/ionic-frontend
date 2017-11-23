@@ -1,0 +1,152 @@
+<ion-header>
+
+  <ion-navbar #navBar>
+    <button ion-button menuToggle>
+      <span class="menu">
+        <img src="assets/icon/Common/_Menu.png" />
+      </span>
+    </button>
+    <ion-item no-lines class="navbar-header">
+      <div class="header-house">
+        <div>
+          <span class="header-house-line">Pet Services</span>
+        </div>
+      </div>
+      <span class="header-right-area" item-right>
+        <ion-icon>
+          <img src="assets/icon/Common/Search%20Inactive.png" />
+        </ion-icon>
+        <ion-icon>
+          <img src="assets/icon/Common/Cart.png" class="second" />
+        </ion-icon>
+      </span>
+    </ion-item>
+  </ion-navbar>
+
+  <!-- <ion-item class="page-header-item" no-lines>
+    <div class="page-header">
+      <span class="page-header-name">
+          <span class="page-header-name-text">What service do you need?</span>
+      </span>
+    </div>
+  </ion-item> -->
+
+</ion-header>
+
+
+<ion-content id="content" padding-bottom>
+  <div class="vertical-scroll">
+    <div class="new" (click)="addPet()">
+      <ion-icon name="ios-add"></ion-icon>
+      Add New
+    </div>
+    <span class="pets-container">
+      <span class="pets" *ngFor="let pet of pets">
+        <img src="{{pet.image}}" *ngIf="pet.image!=''">
+        <img src="assets/icon/Common/Pet Sevices.png" *ngIf="pet.image==''"> {{pet.name}}
+        <ion-icon name="ios-close-outline" (click)="removePet(pet)"></ion-icon>
+      </span>
+    </span>
+  </div>
+  <ion-list padding>
+    <!-- <ion-item *ngIf="pets.length>0" >
+      <div class="vertical-scroll">
+        <span class="pets-container">
+            <span class="pets" *ngFor="let pet of pets">
+              <form [formGroup]="myForm">
+                <label>
+                    <input type="checkbox" (change)="onChange(pet, $event.target.checked)">
+                    {{pet.name}}
+                </label>
+              </form>
+            </span>
+        </span>
+      </div>
+    </ion-item> -->
+    <div *ngFor="let item of petList; let i = index" [ngClass]="{ 'activeClass' : activeIndex === i }">
+      <ion-item no-lines text-wrap no-lines >
+        <div (click)="selectPet(item,i)">
+          <ion-grid style="padding: 15px 5px;">
+            <ion-row>
+              <ion-col col-2 style="display: flex;align-items: flex-end;padding: 0px;">
+                <span item-left class="image">
+                <img class="category-item-image" src="{{item.show==true?item.highlightImage:item.image}}" />
+                </span>
+              </ion-col>
+              <ion-col col-10>
+                 <div class="grocery-sub-categories-product">
+                  <div class="services">
+                    <h2 class="{{item.show==true?'text_orange':'text_black'}}">{{item.name}}</h2>
+                    <h4>{{item.description}}</h4>
+                  </div>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          <div *ngIf="item.show==true">  
+            <ion-grid style="padding:0px; border:1px solid #ebebeb;">     
+              <ion-row class="border_child" style="background-color: #f9f9f9;">
+                <ion-col col-4 *ngFor="let pet of pets">
+                  <div style="float:left;display:flex;">
+                    <img class="iconsize" src="{{pet.image}}">
+                    <span class="petsname text_orange">{{pet.name | slice:0:6}}</span>
+                    <ion-checkbox (ionChange)="onChange(pet, item, $event.checked)"></ion-checkbox>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>  
+          </div>
+        </div>
+      </ion-item>  
+    </div>
+
+
+    <!--<ion-item no-lines text-wrap no-lines *ngFor="let item of items" (click)="toggleGroup(item)" [ngClass]="{active: isGroupShown(item)}">
+      <span item-left class="image">
+      <img class="category-item-image" [src]="item.image"/>
+      </span>
+      <div class="grocery-sub-categories-product">
+        <ion-item no-lines text-wrap class="services">
+          <h2>{{item.name}}</h2>
+          <h4>{{item.description}}</h4>
+        </ion-item>
+      </div>
+    </ion-item>-->
+    <!--<ion-list padding-top>
+      <div class="manual">
+        <div class="right" padding (click)="openManual()">
+          <p class="plus-sign">
+            <ion-icon name="md-checkbox"></ion-icon>
+          </p>
+          <h5>
+            Manual
+          </h5>
+          <p>
+            Some text is here just need to clarify what
+          </p>
+        </div>
+
+        <span class="left" padding (click)="openRecommended()">
+        <p class="plus-sign">
+          <ion-icon name="star"></ion-icon>
+        </p>
+        <h5>
+          Recommended
+        </h5>
+        <p>
+          Some text is here just need to clarify what
+        </p>
+      </span>
+
+      </div>
+    </ion-list>-->
+  </ion-list>
+</ion-content>
+
+
+<ion-footer no-border>
+  <div ion-button full class="btn" (click)="Proceed()">Proceed
+    <ion-icon name="ios-arrow-forward"></ion-icon>
+  </div>
+
+</ion-footer>

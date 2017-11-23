@@ -1,0 +1,14 @@
+{
+  "name": "Bellom",
+  "app_id": "dde71d99",
+  "proxies": [
+    {
+      "path": "/user",
+      "proxyUrl": "http://192.241.167.128/user"
+    }
+  ],
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

@@ -1,0 +1,87 @@
+<ion-header>
+
+  <ion-navbar #navBar>
+    <button ion-button menuToggle>
+      <span class="menu">
+        <img src="assets/icon/Common/_Menu.png" />
+      </span>
+    </button>
+    <div class="navbar-header">
+      <div class="header-house">
+        <ion-title>
+          <div>
+            <span class="header-house-line">Login</span>
+          </div>
+        </ion-title>
+      </div>
+      <span class="header-right-area">
+        <ion-icon>
+          <img src="assets/icon/Common/Search%20Inactive.png" />
+        </ion-icon>
+        <ion-icon>
+          <img src="assets/icon/Common/Cart.png" class="second" />
+        </ion-icon>
+      </span>
+    </div>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding id="content">
+
+  <!-- <ion-list>
+
+    <div class="wrapper">
+
+      <div class="email" no-lines text-wrap>
+
+        <div class="header">
+          <h2>
+            Reset your E-mail
+          </h2>
+        </div>
+
+        <ion-item class="input" no-lines>
+          <input type="text" [(ngModel)]="r_password" placeholder="Password">
+        </ion-item>
+
+
+
+        <button ion-button block (click)="resetEmail()">Reset</button>
+
+      </div>
+
+    </div>
+
+
+  </ion-list> -->
+
+
+  <ion-list>
+
+    <div class="wrapper">
+
+      <div class="email" no-lines text-wrap>
+
+        <div class="header">
+          <h2>
+            Reset your Password
+          </h2>
+        </div>
+
+        <ion-item class="input" no-lines>
+          <input type="text" [(ngModel)]="r_email" placeholder="Your E-mail">
+        </ion-item>
+
+
+
+        <button ion-button block (click)="resetPassword()">Reset</button>
+
+      </div>
+
+    </div>
+
+
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,95 @@
+<ion-header>
+
+  <ion-navbar #navBar>
+    <div class="navbar-header">
+      <div class="header-house">
+        <ion-title>
+          <div>
+            <span class="header-house-line">Match</span>
+          </div>
+        </ion-title>
+      </div>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding id="content">
+  <ion-list *ngFor="let m of match_list">
+    <div class="header">
+      <div class="circle"></div>
+      <ion-item no-lines>
+        <h3>Order number: {{m.orderId}}</h3>
+        <p>{{formatDate(m.date)}}</p>
+        <span item-right class="your-match">Your Match</span>
+      </ion-item>
+    </div>
+    <ion-item no-lines>
+      <ion-thumbnail item-right>
+        <img [src]="m.userId.image">
+      </ion-thumbnail>
+      <ion-icon name="star"></ion-icon>
+      <ion-icon name="star"></ion-icon>
+      <ion-icon name="star"></ion-icon>
+      <ion-icon name="star"></ion-icon>
+      <ion-icon name="star">
+        <span>4.3</span>
+      </ion-icon>
+      <h2>{{m.userId.username}}</h2>
+      <p>Education:
+        <span>PHD</span>
+      </p>
+      <p>Speciality:
+        <span>Dietian</span>
+      </p>
+      <p class="product-item-link">Learn More
+        <ion-icon name="arrow-dropdown"></ion-icon>
+      </p>
+    </ion-item>
+    <button ion-button block>
+      Cancel or change order
+    </button>
+  </ion-list>
+
+  <!-- <ion-list>
+    <div class="header">
+      <div class="circle"></div>
+      <ion-item no-lines>
+        <h3>Order number: 12873921</h3>
+        <p>
+          June 06, 2017 at 12:12
+        </p>
+        <span item-right class="your-match">
+          Your Match
+        </span>
+      </ion-item>
+    </div>
+    <ion-item no-lines>
+      <ion-thumbnail item-right>
+        <img src="https://randomuser.me/api/portraits/women/80.jpg">
+      </ion-thumbnail>
+      <ion-icon name="star"></ion-icon>
+      <ion-icon name="star"></ion-icon>
+      <ion-icon name="star"></ion-icon>
+      <ion-icon name="star"></ion-icon>
+      <ion-icon name="star">
+        <span>4.3</span>
+      </ion-icon>
+      <h2>Katherine Winsent</h2>
+      <p>Education:
+        <span>PHD</span>
+      </p>
+      <p>Speciality:
+        <span>Dietian</span>
+      </p>
+      <p class="product-item-link">Learn More
+        <ion-icon name="arrow-dropdown"></ion-icon>
+      </p>
+    </ion-item>
+    <button ion-button block>
+      Cancel or change order
+    </button>
+  </ion-list> -->
+
+
+</ion-content>

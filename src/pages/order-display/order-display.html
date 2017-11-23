@@ -1,0 +1,114 @@
+<ion-header>
+
+  <ion-navbar #navBar>
+    <button ion-button menuToggle>
+                  <span class="menu">
+                    <img src="assets/icon/Common/_Menu.png" />
+                  </span>
+              </button>
+    <div class="navbar-header">
+      <div class="header-house">
+        <div>
+          <span class="header-house-line">Invoice</span>
+        </div>
+      </div>
+      <!-- <span class="header-right-area">
+                    <ion-icon>
+                      <img src="assets/icon/Common/Search%20Inactive.png" />
+                    </ion-icon>
+                    <ion-icon>
+                      <img src="assets/icon/Common/Cart.png" class="second"/>
+                    </ion-icon>
+                </span> -->
+    </div>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding id="content">
+  <ion-list *ngFor="let shopname of shops">
+    <ion-item class="shop-title">
+      <img col-2 src="{{shopname.image}}" style="height: 100%" />
+      <div>
+        <span>{{shopname.name}}</span>
+      </div>
+      <span item-right class="colorOrange">1</span>
+    </ion-item>
+    <ion-item>
+      <span item-left>{{delDate|date:'MMM dd, yyyy'}}</span>
+      <span item-right class="cart-time">{{delTime}}</span>
+    </ion-item>
+    <ion-item>
+      <span item-left><h2 class="colorOrange">{{address.full_address}}</h2><h4 class="line2">{{address.full_address}}</h4></span>
+      <span item-right class="colorOrange">No Subscribtion</span>
+    </ion-item>
+    <ion-item *ngFor="let item of getItems(shopname.name)">
+      <span item-left class="image"><img class="category-item-image"  src="{{item.itemimage}}" /></span>
+      <span class="cart-item">
+          <h2>{{item.name}}</h2>
+          <h3>$ {{item.price}} each</h3>
+          <h4>Items : {{item.count}}</h4>
+          <!-- <h4>- 0.61 lbs</h4> -->
+      </span>
+      <!-- <div class="cart-item">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-8>
+              <h2>{{item.name}}</h2>
+              <h3>$ {{item.price}} each</h3>
+              <h4>- 0.61 lbs</h4>
+            </ion-col>
+            <ion-col col-4>
+              <div class="item-price">
+                <span>$ {{item.count*item.price}}</span>
+                 <span (click)="decrease(item)">-</span>
+                <span class="count">{{item.count}}</span>
+                <span (click)="increase(item)">+</span>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div> -->
+      <span item-right class="colorOrange">$ {{item.count*item.price}} </span>
+    </ion-item>
+    <ion-item>
+      <span item-left class="cart-item"><h4>SubTotal</h4><h4>Tax Price</h4></span>
+      <span item-right class="colorOrange"><h4>$ {{subTotalAmt}}</h4><h4>$ {{taxAmount}}</h4></span>
+    </ion-item>
+    <ion-item>
+      <span item-left class="total-desc"><h2>Total</h2></span>
+      <span item-right class="colorOrange"><h2>$ {{totalAmount}}</h2></span>
+    </ion-item>
+  </ion-list>
+
+  <ion-item>
+    <div class="cart-item">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-12>
+            Promo code
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12>
+            <input type="text" [(ngModel)]="promocode" class="promocode" placeholder="Type Your Promocode Here">
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12 style="text-align: right">
+            <button ion-button round (click)="checkPromocode(promocode)" >Apply</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </ion-item>
+</ion-content>
+<ion-footer>
+  <div class="btn">
+    <span item-left>Invoice Total</span>
+    <span item-right  class="btn-right-item">$ {{netAmount}}</span>
+  </div>
+  <div>
+    <button ion-button full primary (click)="gotoPayment()">Proceed</button>
+  </div>
+</ion-footer>

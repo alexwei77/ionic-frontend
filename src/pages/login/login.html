@@ -1,0 +1,85 @@
+<ion-header>
+
+  <ion-navbar #navBar>
+    <!-- <button ion-button menuToggle>
+        <span class="menu">
+            <img src="assets/icon/Common/_Menu.png" />
+        </span>
+    </button> -->
+    <div class="navbar-header">
+      <div class="header-house">
+        <ion-title>
+          <div>
+            <span class="header-house-line">Login</span>
+          </div>
+        </ion-title>
+      </div>
+      <!-- <span class="header-right-area">
+        <ion-icon>
+            <img src="assets/icon/Common/Search%20Inactive.png" />
+        </ion-icon>
+        <ion-icon>
+            <img src="assets/icon/Common/Cart.png" class="second"/>
+        </ion-icon>
+    </span> -->
+    </div>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding id="content">
+  <ion-card>
+    <!--Login Form-->
+    <div class="login-form">
+      <ion-list>
+        <p>E-mail or Phone Number</p>
+        <ion-item>
+          <ion-input [(ngModel)]="loginData.email" type="text" placeholder="Example@something.com" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-icon item-left name="ios-lock-outline"></ion-icon>
+          <ion-input [(ngModel)]="loginData.password" type="password" placeholder="Password" required></ion-input>
+        </ion-item>
+      </ion-list>
+    </div>
+<!--
+    <div class="login-btn">
+      <button class="orangecolor" ion-button block color="light" (click)="login()">Forgot my password or e-mail</button>
+    </div>-->
+    <ion-card class="forgotPassButton" (click)="forgotEmail()">
+      <ion-card-header>
+        <span class="orangecolor"> Forgot my password or e-mail</span>
+      </ion-card-header>
+    </ion-card>
+
+    <!--Social Login-->
+    <div class="social-login">
+      <ion-row>
+        <ion-col col-6>
+          <div class="social-icon" (click)="doFbLogin();">
+            <i class="fa fa-facebook"></i>
+            <ion-label>Connect with Facebook</ion-label>
+          </div>
+        </ion-col>
+        <ion-col col-6>
+          <div class="social-icon"  (click)="doGoogleLogin();">
+            <i class="fa fa-google-plus"></i>
+            <ion-label>Connect with Google+</ion-label>
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-card>
+
+  <div class="login-btn">
+    <button ion-button block color="primary" (click)="login()">Sign In</button>
+  </div>
+
+  <!-- Other links -->
+  <div class="other-link">
+    <span color="grey">Not a Member?</span>
+    <a color="primary" (click)="register()">Sign Up</a>
+  </div>
+
+</ion-content>

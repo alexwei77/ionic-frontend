@@ -1,0 +1,100 @@
+<ion-header>
+
+  <ion-navbar #navBar>
+
+    <div class="navbar-header">
+      <div class="header-house">
+        <div>
+          <span class="header-house-line">Choose your provider</span>
+        </div>
+      </div>
+      <span class="header-right-area">
+          <ion-icon>
+            <img src="assets/icon/Common/Search%20Inactive.png" />
+          </ion-icon>
+          <ion-icon>
+            <img src="assets/icon/Common/Cart.png" class="second"/>
+          </ion-icon>
+      </span>
+    </div>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding id="content">
+
+  <ion-list>
+
+    <ng-container *ngFor="let item of items;let i=index">
+
+      <ion-item *ngIf="item.recommended" no-lines (click)="toggleGroup(i)">
+
+        <ion-thumbnail item-right>
+          <img [src]="item.image">
+        </ion-thumbnail>
+
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"><span>4.3</span></ion-icon>
+
+        <h3>{{item.username}}</h3>
+
+        <p>Education
+          <span>{{item.education}}</span>
+        </p>
+
+        <p>Speciality
+          <span>{{item.speciality}}</span>
+        </p>
+
+        <p class="product-item-link">Learn More
+          <img src="assets/icon/Common/Next.png" class="product-item-next-img" />
+        </p>
+
+      </ion-item>
+
+      <div class="display" *ngIf="isGroupShown(i)">
+        <ion-item class="about" text-wrap *ngIf="item.recommended" no-lines>
+          <h3>About</h3>
+          <p>
+            {{item.about}}
+          </p>
+
+          <div class="icons">
+
+            <span>
+                <ion-icon name="mail">
+                  E-mail me
+                </ion-icon>          
+            </span>
+
+            <span>
+              <ion-icon name="share">
+                Send to a friend
+              </ion-icon>
+            </span>
+
+            <span>
+              <ion-icon name="md-globe">
+                Website
+              </ion-icon>                    
+            </span>
+
+          </div>
+
+          <button ion-button full (click)="nextPage()">
+            Choose
+            <ion-icon name="ios-arrow-forward"></ion-icon>
+          </button>
+
+        </ion-item>
+      </div>
+
+
+    </ng-container>
+
+  </ion-list>
+</ion-content>

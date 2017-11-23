@@ -1,0 +1,102 @@
+page-forgot-email {
+  ion-navbar {
+    .menu {
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    border-bottom: 1px solid #c8c7cc;
+    .back-button {
+      padding-left: 16px;
+    }
+    .toolbar-background {
+      background-color: color($colors, white);
+    }
+    .edit-address {
+      width: 12px;
+    }
+    .navbar-header {
+      margin-left: 10px;
+      display: flex;
+      justify-content: space-between;
+      margin-right: 16px;
+      margin-bottom: 4px;
+      align-items: center;
+    }
+    .header-house {
+      &-label {
+        margin-bottom: 4px;
+      }
+      &-line {
+        color: color($colors, orange);
+        font-size: 1.7rem;
+      }
+    }
+    .header-right-area {
+      padding-right: 10px;
+      ion-icon {
+        width: 25px;
+        height: 25px;
+      }
+      .second {
+        margin-left: 15px;
+      }
+    }
+  }
+  #content {
+    background-color: color($colors, light);
+    .wrapper {
+      box-shadow: 0 0 6px 1px color($colors, grey); // padding: 0px;
+      .email {
+        padding-top: 10px;
+        width: 100%;
+        background: white;
+        .header {
+          border-bottom: 1px solid $silver-border;
+          height: 30px;
+          padding-left: 10px;
+          h2 {
+            font-size: 14px;
+          }
+        }
+        ion-item {
+                &.input-has-focus{
+                border: 1px solid #ff7417;
+              }
+              margin: 10px auto 20px auto;
+              max-width: 250px;
+          ion-label {
+              margin: 0px!important;
+          }
+          &.input {
+            background-color: white;
+            text-align: center;
+            min-height: 1.4rem;
+            border: 1px solid #ddd;
+            border-radius: 30px !important;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            padding-left: 10px;
+            font-size: 1.4rem;
+            padding-left: 0px;
+
+            input[type="text"] {
+              border-radius: 5px;
+              -moz-border-radius: 5px;
+              -webkit-border-radius: 5px;
+              width: 250px;
+              border: 1px solid $silver-border;
+              height: 25px;
+              font-size: 12px;
+              padding-left: 5px;
+            }
+          }
+        }
+        button {
+          margin: 0px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,165 @@
+page-add-apartment {
+  ion-navbar {
+    border-bottom: 1px solid #c8c7cc;
+    .back-button {
+      padding-left: 16px;
+    }
+    .toolbar-background {
+      background-color: color($colors, white);
+    }
+    .edit-address {
+      width: 12px;
+    }
+    .navbar-header {
+      margin-left: 10px;
+      display: flex;
+      justify-content: space-between;
+      margin-right: 16px;
+      margin-bottom: 4px;
+      align-items: center;
+    }
+    .header-address {
+      &-label {
+        margin-bottom: 4px;
+      }
+      &-line {
+        color: color($colors, orange);
+        font-size: 1.7rem;
+      }
+    }
+  }
+  #content {
+    background-color: color($colors, light);
+    ion-list {
+      box-shadow: 0 0 6px 1px color($colors, grey);
+      border: none;
+      ion-item {
+        border-bottom: 1px solid #dedede;
+        padding: 10px 10px 10px 10px;
+        .apartments-header {
+          color: color($colors, orange);
+        }
+        p {
+          padding-top: 5px;
+        }
+      }
+    }
+  }
+
+  .card-header-ios {
+    padding: 16px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #999;
+  }
+  ion-footer {
+    button{
+          margin-bottom: 0px!important;
+    }
+    .cart-btn {
+      img {
+        width: 30px;
+        height: 30px;
+      }
+      display: flex;
+      padding: 10px 30px;
+      font-size: 16px;
+      div {
+        padding-top: 6px;
+      }
+      span {
+        color: color($colors, primary);
+        font-size: 14px;
+        margin-left: 20px;
+      }
+    }
+    .cart-btn:hover {
+      background-color: color($colors, grey);
+    }
+    .proceed-btn {
+
+      padding: 10px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: color($colors, primary);
+      color: white;
+      font-size: 14px;
+      &-right-item {
+        display: flex;
+        div {
+          padding-top: 6px;
+          margin-right: 10px;
+        }
+        ion-icon {
+          // margin-bottom: 20px;
+          right: 20px;
+          bottom: 11px;
+          position: absolute;
+        }
+      }
+    }
+    .proceed-btn::hover {
+      background-color: color($colors, orange);
+    }
+  }
+  .apartmentField{
+    float: right;
+    height: 30px;
+    width: 80px;
+    border-radius: 30px;
+    position: relative;
+    top: -65px;
+    right: 10px;
+    text-align: center;
+    border: 1px solid #999;
+  }
+  .texttransformNormal{
+    text-transform: initial !important;
+  }
+  .borderbottomgray{
+     border-bottom: 1px solid #999;
+  }
+  .bordergray{
+     border: 1px solid #999;
+  }
+  .activebutton{
+    background-color: color($colors, orange) !important;
+    color: #fff !important;
+  }
+  .deactivebutton{
+    background: transparent;
+    color: #000;
+  }
+  .inputFields{
+    width: 100% !important;
+    border-radius: 15px !important;
+    height: 40px !important;
+    border: 1px solid #999 !important;
+  }
+  .text_center{
+    text-align: center;
+  }
+  .margintop15
+  {
+    margin-top: 15px !important;
+  }
+  .inputFormfield{
+    height: 40px  !important;
+    padding-left: 10px !important;
+    margin-top: 10px;
+    border-radius: 20px !important;
+    border: 1px solid #999 !important;
+    width: 100% !important;
+  }
+  .colorOrange{
+     color: color($colors, orange) !important;
+  }
+  .whitespacenormal{
+    white-space: normal !important;
+  }
+
+  ion-card-content.margintop15.text_center.card-content {
+    background-color: #f9f9f9;
+  }
+}

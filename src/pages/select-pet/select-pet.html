@@ -1,0 +1,63 @@
+<ion-header>
+
+  <ion-navbar #navBar>
+
+    <div class="navbar-header">
+      <div class="header-house">
+        <div>
+          <span class="header-house-line">{{header}}</span>
+        </div>
+      </div>
+      <span class="header-right-area">
+          <ion-icon>
+            <img src="assets/icon/Common/Cart.png" class="second"/>
+          </ion-icon>
+      </span>
+    </div>
+  </ion-navbar>
+
+  <ion-item class="page-header-item" no-lines>
+    <div class="page-header">
+      <span class="page-header-name">
+          <span class="page-header-name-text">Select pet</span>
+      </span>
+    </div>
+  </ion-item>
+
+</ion-header>
+
+
+<ion-content id="content" padding>
+
+  <ion-list *ngFor="let pet of pets">
+    <ion-item-sliding>
+      <ion-item no-lines (click)="goToDate()">
+
+        <span item-left>
+        <img src="{{pet.image}}" />
+      </span>
+        <span>{{pet.name}}</span>
+
+        <span item-right class="type">
+          {{pet.type}}
+      </span>
+
+      </ion-item>
+
+      <ion-item-options side="right">
+        <button ion-button color="danger" (click)="removePet(pet)">Delete</button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+
+
+  </ion-list>
+
+  <ion-item class="add-address" no-lines (click)="addPet()">
+    <p class="plus-sign">+</p>
+    <div>
+      <span>Add New Pet</span>
+    </div>
+  </ion-item>
+
+</ion-content>

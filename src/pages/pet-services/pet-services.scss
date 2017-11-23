@@ -1,0 +1,253 @@
+page-pet-services {
+  font-family: 'Fira Sans', 'sans-serif', 'serif';
+  .activeClass {
+    
+    ion-item {
+      box-shadow: 0 0 6px 1px color($colors, orange)!important;
+    }
+    
+  }
+  ion-navbar {
+    .menu {
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    .back-button {
+      padding-left: 16px;
+    }
+    .toolbar-background {
+      background-color: color($colors, white);
+    }
+    .header-house {
+      &-line {
+        color: color($colors, orange);
+        font-size: 1.7rem; // margin-bottom: 5px;
+      }
+    }
+    .header-right-area {
+      padding-right: 10px;
+      ion-icon {
+        width: 20px;
+        height: 20px;
+      }
+      .second {
+        margin-left: 15px;
+      }
+    }
+  }
+  #content {
+    .vertical-scroll {
+      font-size: 14px;
+      overflow: auto;
+      height: 50px;
+      white-space: nowrap;
+      overflow-y: hidden;
+      background-color: white; // border: 1px solid $silver-border;
+      .new {
+        line-height: 50px;
+        border-right: 1px solid $silver-border;
+        height: 100%;
+        display: inline-block;
+        color: color($colors, orange);
+        text-align: center;
+        width: 30%;
+        padding-right: 5px;
+        padding-left: 15px;
+        overflow: visible;
+        white-space: normal;
+        ion-icon {
+          padding-right: 10px;
+          vertical-align: middle; // font-size: 40px;
+        }
+      }
+      .pets-container {
+        width: 75%;
+        height: 100%;
+        .pets {
+          img {
+            height: 22px;
+            
+            vertical-align: middle;
+            border-radius: 50%;
+          }
+          line-height: 50px; // border-right: 1px solid $silver-border;
+          height: 100%;
+          display: inline-block;
+          text-align: center;
+          padding-left: 5px;
+          padding-right: 5px;
+          overflow: visible;
+          white-space: normal;
+          ion-icon {
+            padding-left: 10px;
+            padding-right: 10px;
+            font-size: 40px;
+            vertical-align: middle;
+            color: color($colors, orange);
+          }
+        }
+      }
+    }
+    background-color: color($colors, light);
+    ion-item {
+      border: 0;
+      background-color: color($colors, white);
+      box-shadow: 0 0 6px 1px color($colors, grey);
+      margin-bottom: 15px;
+      .item-inner{
+        padding: 0px;
+        ion-label{
+          margin-right: 0px;
+          margin-bottom: 0px;
+        }
+      }
+      .image {
+         width: 57px;
+        margin: 0px;
+        text-align: center;
+      }
+      .grocery-sub-categories-product {
+        h4 {
+          color: grey;
+          padding-top: 10px;
+          font-size: 1.2rem;
+        }
+      }
+    }
+    .active {
+      box-shadow: 0 0 10px 0 color($colors, orange);
+      z-index: 200;
+      h2 {
+        color: color($colors, orange);
+      }
+      ion-col {
+        h4 {
+          color: color($colors, orange);
+        }
+      }
+      img {
+        color: color($colors, orange);
+      }
+    }
+    .manual {
+      width: 100%;
+      h5 {
+        color: color($colors, primary);
+        font-size: 15px;
+      }
+      p {
+        color: color($colors, grey);
+      }
+      ion-icon {
+        color: color($colors, primary);
+      }
+      .right {
+        box-shadow: 0 0 6px 1px color($colors, grey);
+        color: color($colors, gray);
+        background-color: white;
+        text-align: center;
+        float: right;
+        width: 50%;
+        height: 150px;
+      }
+      .left {
+        box-shadow: 0 0 6px 1px color($colors, grey);
+        background-color: white;
+        float: left;
+        text-align: center;
+        width: 50%;
+        height: 150px;
+      }
+    }
+  }
+  .iconsize {
+    width: 25px;
+  }
+  .checkbox-md .checkbox-checked {
+    border-color: #ff7417 !important;
+    background-color: #ff7417 !important;
+  }
+  .no_padding {
+    padding: 0px !important;
+  }
+  .border1px_gray {
+    border: 1px solid #ccc;
+  }
+  .text_orange {
+    color: #ff7417;
+  }
+  .petsname {
+    position: relative;
+    display: flex;
+    padding-top: 10px;
+    margin-right: 5px;
+    text-overflow: ellipsis;
+    max-width: 53px;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 13px;
+  }
+  .width33 {
+    width: 33.33% !important;
+  }
+  .flexbasis {
+    flex-basis: auto !important;
+  }
+  .checkbox-ios .checkbox-checked {
+      background-color: white;
+  }
+  .checkbox-ios .checkbox-checked .checkbox-inner{
+      border-color: #ff7417;
+  }
+  
+  .removeicon {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 30px;
+    vertical-align: middle;
+    color: color($colors, orange);
+  }
+  .text_capitalize {
+    text-transform: capitalize !important;
+  }
+  .textblack {
+    color: #000 !important;
+  }
+  ion-footer {
+    bottom: 0px;
+    ion-icon {
+      margin-left: 10px;
+    }
+    .btn{
+      margin: 0px;
+      text-transform: none;
+    }
+  }
+  ion-item.services.item.item-blocks {
+      box-shadow: none!important;
+  }
+  .checkbox-ios .checkbox-icon {
+    border-radius: 25%;
+  }
+
+  ion-list{
+    ion-item.item.item-block {
+        padding: 0px;
+    }
+    .item-ios.item-block .item-inner{
+      padding:0px;
+    }
+    .label-ios{
+      margin: 0px  0px 0px 0px ;
+    }
+  }
+  .border_child{
+    ion-col.col{
+      &:nth-child(2),&:nth-child(3),&:nth-child(5),&:nth-child(6) {
+        border-left: 1px solid #ebebeb;
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+<ion-menu [content]="content">
+  <ion-content class="menu-left">
+    <ion-icon class="closemenu" color="primary" menuClose item-left name="ios-close-circle-outline"></ion-icon>
+    <!-- User profile -->
+    <ion-list>
+      <ion-item no-lines>
+        <ion-thumbnail item-left>
+          <img [src]="user_image">
+        </ion-thumbnail>
+        <h2>{{user_display_name}}</h2>
+      </ion-item>
+    </ion-list>
+
+    <ion-list class="list-full-border">
+      <button menuClose ion-item no-lines *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon class="special" item-left name="{{ p.icon }}" color='primary'></ion-icon>
+        <img src={{p.imagePath}}>
+        <p class="list_item_spec">
+          {{ p.title }}
+        </p>
+        <!-- <ion-icon item-right name="ios-arrow-forward" color='primary'></ion-icon> -->
+      </button>
+    </ion-list>
+    <div class="logout">
+      <h4 menuClose (click)="logout()">Log Out</h4>
+    </div>
+  </ion-content>
+
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

@@ -1,0 +1,114 @@
+<ion-header>
+
+  <ion-navbar #navBar>
+    <div class="navbar-header">
+      <div class="header-address">
+        <div>
+          <span class="header-address-line">Apartment</span>
+        </div>
+      </div>
+    </div>
+  </ion-navbar>
+
+  <ion-item class="page-header-item" no-lines>
+    <div class="page-header">
+      <span class="page-header-name">
+        <span class="page-header-name-text">Your Building</span>
+      </span>
+    </div>
+  </ion-item>
+</ion-header>
+
+
+<ion-content padding id="content" no-lines>
+
+  <ion-list style="margin: 0px!important;">
+    <ion-item no-lines padding text-wrap>
+      <div class="apartments-header">
+         {{ selectAddress.name }}
+      </div>
+      <p> {{ selectAddress.address }}</p>
+    </ion-item>
+     <input class="apartmentField" [(ngModel)]="selectAddress.apt" type="text" placeholder="Apt No">
+  </ion-list>
+
+<!--Missed card start-->
+<ion-card class="cardStyle" style="margin-bottom: 15px!important;position: relative;
+    top: -15px;">
+      <ion-card-header class="text_center" style="background:white;">
+       Key arrangment
+      </ion-card-header>
+      <ion-card-content style="background:#f9f9f9;    padding: 10px 0px 15px 0px;">
+       <div style="display:flex;justify-content:center">
+          <button [ngClass]="selectedKeyArr == 'Someone will be home' ? 'bordergray texttransformNormal deactivebutton activebutton' : 'bordergray texttransformNormal deactivebutton'" (click)="changeKeyArrangement('Someone will be home')" style="color: #999;padding: 10px 10px !important;border-radius: 64px;font-size: 1.3rem;">
+            Someone will be home
+        </button>
+        <!--class activebutton for orange button-->
+
+        <button [ngClass]="selectedKeyArr == 'Door will be open' ? 'bordergray texttransformNormal deactivebutton activebutton' : 'bordergray texttransformNormal deactivebutton' " (click)="changeKeyArrangement('Door will be open')"
+         style="color: #999;padding: 10px 10px !important;border-radius: 64px;    font-size: 1.3rem;    margin-left: 13px;">
+
+            Door will be open
+        </button>
+       </div>
+       <div style="display:flex;justify-content:center">
+         <button [ngClass]="selectedKeyArr == 'Appartment manager wiil let you in' ? 'bordergray texttransformNormal deactivebutton activebutton' : 'bordergray texttransformNormal deactivebutton' " (click)="changeKeyArrangement('Appartment manager wiil let you in')"
+          style="color: #999;
+    padding: 10px 45px !important;
+    border-radius: 64px;
+    font-size: 1.3rem;">
+
+            Appartment manager wiil let you in
+        </button>
+        </div>
+      </ion-card-content>
+
+</ion-card>
+
+<!--Missed card finish-->
+
+
+   <ion-card class="cardStyle">
+      <ion-card-header class="text_center">
+       How to we can contact you ?
+      </ion-card-header>
+      <ion-card-content class="margintop15">
+        <button (click)="activatedPhone();"  [ngClass]="{'activebutton': activephone==true}" class="bordergray texttransformNormal deactivebutton" ion-button icon-only small clear  round >
+            <ion-icon name="ios-phone-portrait"></ion-icon>
+            Contact by phone
+        </button>
+        <button  (click)="activatedEmail();"  [ngClass]="{'activebutton': activeemail==true}"  class="bordergray texttransformNormal deactivebutton"  ion-button icon-only clear small round >
+          <ion-icon name="ios-mail"></ion-icon>
+          Contact by email
+        </button>
+      </ion-card-content>
+      <ion-card-content *ngIf="activeemail==true">
+        <p>Email</p>
+        <input class="inputFields"  type="text" placeholder="Enter your email" [(ngModel)]="keyArrangement.contact">
+      </ion-card-content>
+      <ion-card-content  *ngIf="activephone==true" >
+        <p>Phone</p>
+        <input  class="inputFields"  type="text" placeholder="Enter your mobile"  [(ngModel)]="keyArrangement.contact">
+      </ion-card-content>
+    </ion-card>
+
+</ion-content>
+
+<ion-footer>
+  <!-- <div class="cart-btn" (click)="goToCheckOut()">
+    <img src="assets/icon/Common/_Cart.png" />
+    <div>
+      <span>Review Cart</span>
+    </div>
+  </div> -->
+  <div class="proceed-btn" (click)="goToInvoice()">
+    <span>Proceed to checkout</span>
+    <div class="proceed-btn-right-item">
+      <div>
+        <span>$ {{cartTotal}}</span>
+      </div>
+      <ion-icon name='ios-arrow-forward'></ion-icon>
+      <!-- <img src="assets/icon/Common/Next White.png" /> -->
+    </div>
+  </div>
+</ion-footer>

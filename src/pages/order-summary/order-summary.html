@@ -1,0 +1,124 @@
+<ion-header>
+
+  <ion-navbar #navBar>
+    <button ion-button menuToggle>
+      <span class="menu">
+        <img src="assets/icon/Common/_Menu.png" />
+      </span>
+    </button>
+    <div class="navbar-header">
+      <div class="header-house">
+        <div>
+          <span class="header-house-line">Order Summary</span>
+        </div>
+      </div>
+      <span class="header-right-area">
+        <ion-icon>
+          <img src="assets/icon/Common/Search%20Inactive.png" />
+        </ion-icon>
+        <ion-icon>
+          <img src="assets/icon/Common/Cart.png" class="second" />
+        </ion-icon>
+      </span>
+    </div>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding id="content">
+
+  <ion-list>
+
+    <ion-item no-lines text-wrap>
+
+      <div class="header">
+        <ion-icon name="ios-thumbs-up-outline"></ion-icon> Order Delivered
+        <span class="date">
+          January 22, 10:15PM
+        </span>
+      </div>
+
+      <div class="text">
+        <div class="price">
+          127$
+        </div>
+        <div class="grocery">
+          Grocery name
+        </div>
+        <div class="order">
+          Order number: 812738978979
+        </div>
+      </div>
+
+    </ion-item>
+
+  </ion-list>
+
+  <ion-list>
+
+    <div class="item-border">
+      <ion-item no-lines text-wrap>
+        <ion-thumbnail item-left>
+          <img src="assets/icon/Common/Grocery.png">
+        </ion-thumbnail>
+        <h3>Tomatoes - Non Seasonal</h3>
+        <p>1 lbs</p>
+        <span class="tomato-price" item-right>$ 1.89</span>
+      </ion-item>
+    </div>
+
+    <div class="item-border">
+      <ion-item no-lines text-wrap>
+        <ion-thumbnail item-left>
+          <img src="assets/icon/Common/Grocery.png">
+        </ion-thumbnail>
+        <h3>Tomatoes - Non Seasonal</h3>
+        <p>1 lbs</p>
+        <span class="tomato-price" item-right>$ 1.89</span>
+      </ion-item>
+    </div>
+
+    <div class="item-border">
+      <ion-item no-lines text-wrap>
+        <ion-thumbnail item-left>
+          <img src="assets/icon/Common/Grocery.png">
+        </ion-thumbnail>
+        <h3>Tomatoes - Non Seasonal</h3>
+        <p>1 lbs</p>
+        <span class="tomato-price" item-right>$ 1.89</span>
+      </ion-item>
+    </div>
+
+
+    <ion-item class="summary" no-lines>
+      <p>Item total</p>
+      <span item-right>$ 127.89</span>
+    </ion-item>
+
+    <ion-item class="summary" no-lines>
+      <p>Delivery Charges</p>
+      <span item-right>$ 7</span>
+    </ion-item>
+
+    <ion-item class="summary" no-lines>
+      <p>Discount Applied</p>
+      <span item-right>$ 4</span>
+    </ion-item>
+
+    <ion-item class="summary" no-lines>
+      <div class="paid">
+        <ion-icon name="ios-card"></ion-icon> Paid via Credit Card
+      </div>
+    </ion-item>
+
+    <ion-item no-lines>
+      Total Payable Amount:
+      <span item-right>
+        $ 134.00
+      </span>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

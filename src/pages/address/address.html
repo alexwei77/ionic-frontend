@@ -1,0 +1,161 @@
+<!--
+  Generated template for the Address page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+    <ion-navbar #navBar>
+        <div class="navbar-header">
+            <div class="header-address">
+                <div>
+                    <span class="header-address-line">Search Apartment</span>
+                </div>
+            </div>
+        </div>
+    </ion-navbar>
+    <ion-item class="page-header-item">
+        <div class="page-header">
+            <span class="page-header-name">
+                <span class="page-header-name-text">Your Building</span>
+            </span>
+        </div>
+    </ion-item>
+    <ion-card style="box-shadow:none;">
+         <ion-searchbar placeholder="Tab to start searching.." (ionInput)="searchAddress($event)"></ion-searchbar>
+           <ion-card  class="result_searching">
+
+                 <div class="borderbottomgray" *ngFor="let item of filterAddresses;let i=index;" [ngClass]="{'active':activeStatus==i}">
+                        <ion-card-header class="colorOrange" (click)="selectAdd(item,i);">
+                            {{ item.name }}
+                            <p style=" margin: 10px 0 2px;"> {{ item.address }}</p>
+                        </ion-card-header>
+                </div>
+
+            </ion-card>
+
+        <!-- <div *ngIf="noResult">
+            <ion-item-divider>
+                Couldn't Find your Building.Please Add Details
+            </ion-item-divider>
+            <page-add-apartment></page-add-apartment>
+        </div> -->
+    </ion-card>
+</ion-header>
+
+<ion-content [ngClass]="{'footerContent': (isAddAddress==true),'content': (isAddAddress==false)}">
+
+  <!-- <ion-card>
+    <div class="borderbottomgray" *ngFor="let item of filterAddresses;let i=index;" [ngClass]="{'active':activeStatus==i}" >
+       <ion-card-header  class="colorOrange" (click)="selectAdd(item,i);">
+        {{ item.name }}
+        <p> {{ item.address }}</p>
+        </ion-card-header>
+    </div>
+  </ion-card>
+
+  <ion-card *ngIf="noResult==true && filterAddresses.length<=0" >
+    <div class="borderbottomgray" >
+      <ion-card-header  class="colorOrange text_center">
+          No Result Found
+      </ion-card-header>
+      <ion-card-content>
+        <button ion-button block color="primary" (click)="goAddbuilding()">Add Apartment</button>
+      </ion-card-content>
+    </div>
+  </ion-card> -->
+
+
+  <!--<ion-list>
+    <ion-item *ngFor="let item of showAddress.data">
+      <p class="colorOrange">{{ item.name }}</p>
+      <br/>
+      <p>{{item.address}}</p>
+    </ion-item>
+  </ion-list>-->
+    <!--<ion-item *ngIf="addressIsSet" id="addressDisplay">
+        <span><ion-icon item-left name="home"></ion-icon></span>
+        <span style="padding-left: 10px;">
+          <h2 float-left class="colorOrange">{{Address.full_address}}</h2>
+          <h4 float-left class="colorGray">{{Address.appartment_name}}</h4>
+      </span>
+    </ion-item>
+    <ion-list>
+        <ion-item *ngFor="let address of filterAddresses" (click)="setAddress(address)">
+            <img src="assets/icon/Common/Recent.png" />
+            <div>
+                <span>{{address.full_address}}, {{address.appartment_name}}</span>
+            </div>
+        </ion-item>
+        <ion-card id="contact" *ngIf="showKeyArrangment">
+            <ion-item-divider style="text-align: center">
+                Key Arrangments
+            </ion-item-divider>
+            <ion-item>
+                <div>
+                    <button ion-button round outline [ngClass]="{'btn-select': (keyType==1)}" (click)="keyType=1">Someone Will be Home</button>
+                    <button ion-button round outline [ngClass]="{'btn-select': (keyType==2)}" (click)="keyType=2">Door Will be Open</button>
+                </div>
+                <div>
+                    <button ion-button round outline [ngClass]="{'btn-select': (keyType==3)}" (click)="keyType=3">Appartment Manager will let you in</button>
+                </div>
+            </ion-item>
+        </ion-card>
+        <ion-card id="contact" *ngIf="showContact">
+            <ion-item-divider style="text-align: center">
+                How can We Contact You ?
+            </ion-item-divider>
+            <ion-item>
+                <button ion-button round outline icon-left [ngClass]="{'btn-select': (contacttype==1)}" (click)="contacttype=1"><ion-icon name="phone-portrait"></ion-icon>Contact By Phone</button>
+                <button ion-button round outline icon-left [ngClass]="{'btn-select': (contacttype==2)}" (click)="contacttype=2"><ion-icon name="mail"></ion-icon>Contact By Email</button>
+            </ion-item>
+            <ion-item *ngIf="contacttype">
+                <input type="email" *ngIf="contacttype==1" [(ngModel)]="contactDetails" class="contactinput" placeholder="Type Your Phone Number">
+                <input type="number" *ngIf="contacttype==2" [(ngModel)]="contactDetails" class="contactinput" placeholder="Type Your Email Address">
+            </ion-item>
+        </ion-card>
+    </ion-list>
+    <div *ngIf="isAddAddress">
+        <ion-item-divider>
+            Couldn't Find your Building.Please Add Details
+        </ion-item-divider>
+        <page-add-address></page-add-address>
+    </div>-->
+
+</ion-content>
+<ion-footer *ngIf="!isAddAddress" [ngClass]="{'footerContent': (isAddAddress==false)}">
+    <!-- <div *ngIf="isAddAddress" class="proceed-btn" (click)="submitAddress()">
+        <div>
+            <span>Submit</span>
+        </div>
+    </div> -->
+    <!-- <div class="cart-btn" (click)="gotoOrderItems()">
+        <img src="assets/icon/Common/Footer Cart.png" />
+        <div>
+            <span>Review Cart</span>
+        </div>
+    </div> -->
+
+
+
+  <div class="proceed-btn" >
+    <span>Proceed to Payment</span>
+    <div class="proceed-btn-right-item">
+      <div>
+        <span>$ {{totalAmount}}</span>
+      </div>
+      <ion-icon name='ios-arrow-forward'></ion-icon>
+      <!-- <img src="assets/icon/Common/Next White.png" /> -->
+    </div>
+  </div>
+     <!-- <div class="proceed-btn" (click)="gotoOrderDisplay()" [attr.disabled]="true">
+        <span>Proceed to checkout</span>
+        <div class="proceed-btn-right-item">
+            <div>
+                <span>$ 50</span>
+            </div>
+        </div>
+    </div> -->
+    <!--<button ion-button full [disabled]="false" (click)="submitAddress()">Proceed to checkout</button>-->
+</ion-footer>

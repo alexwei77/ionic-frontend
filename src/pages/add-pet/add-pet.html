@@ -1,0 +1,74 @@
+<ion-header>
+
+  <ion-navbar #navBar>
+    <ion-item class="navbar-header" no-lines>
+      <div class="header-address">
+        <div>
+          <span class="header-address-line">Add New Pet</span>
+        </div>
+      </div>
+    </ion-item>
+    <ion-buttons left>
+      <button ion-button icon-only (click)="close()">
+        <ion-icon name="ios-arrow-dropleft"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content id="content" padding>
+  <form #loginForm="ngForm">
+
+    <ion-list padding>
+      <!-- <ion-card padding no-lines> -->
+      <ion-item no-lines class="pet-photo" text-wrap>
+        <img *ngIf="petImage==''" src="http://www.freeiconspng.com/uploads/camera-icon-21.png" alt="">
+        <img *ngIf="petImage!=''" src="{{petImage}}" alt="">
+        <div class="text" (click)="takePicture()">
+          Tap here to choose your pet photo
+        </div>
+      </ion-item>
+      <!-- </ion-card> -->
+    </ion-list>
+
+    <ion-list padding>
+
+      <!-- <ion-card padding> -->
+      <p>Name</p>
+      <ion-item>
+        <ion-input type="text" [(ngModel)]="name" name="name" required></ion-input>
+      </ion-item>
+
+      <p>Select a pet type.</p>
+      <ion-item>
+        <ion-select [(ngModel)]="type" name="type" required (ngModelChange)="getPetBreeds($event);">
+          <!--<ion-option selected='true'>Dog</ion-option>-->
+          <ion-option *ngFor="let pet of allPetTypes" value="{{pet._id}}">{{pet.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <p>Select breed.</p>
+      <ion-item>
+        <ion-select name='breed' [(ngModel)]="breed" interface="action-sheet" required>
+          <!--<ion-option value="Lebra">Lebra</ion-option>-->
+          <ion-option value="German Shepherd" *ngFor="let breeds of allBreedTypes" value="{{breeds._id}}">{{breeds.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <p>Special notes</p>
+      <ion-item word-wrap class="textareaheight" no-lines>
+        <ion-textarea class="textareaheight" placeholder="Enter a description" [(ngModel)]="notes" name="notes" required></ion-textarea>
+      </ion-item>
+
+      <button type="submit" ion-button block [disabled]="!loginForm.form.valid" (click)="savePet(name,type,breed,notes)">Save Pet</button>
+
+      <!-- </ion-card> -->
+
+    </ion-list>
+
+
+  </form>
+</ion-content>

@@ -1,0 +1,85 @@
+<ion-header>
+
+  <ion-navbar #navBar>
+    <div class="navbar-header">
+      <div class="header-address">
+        <div>
+          <span class="header-address-line">Apartment</span>
+        </div>
+      </div>
+    </div>
+  </ion-navbar>
+
+  <ion-item class="page-header-item" no-lines>
+    <div class="page-header">
+      <span class="page-header-name">
+        <span class="page-header-name-text">Delivery Address</span>
+      </span>
+    </div>
+  </ion-item>
+</ion-header>
+
+
+<ion-content padding id="content" no-lines>
+
+  <ion-list>
+
+    <ion-item no-lines padding text-wrap>
+
+      <div class="apartments-header">
+        2900 on First Apartment
+      </div>
+      <p>2900 First Eve, Seattle, WA, 98121</p>
+
+    </ion-item>
+
+    <ion-item no-lines padding text-wrap>
+
+      <div class="apartments-header">
+        2900 on First Apartment
+      </div>
+      <p>2900 First Eve, Seattle, WA, 98121</p>
+
+    </ion-item>
+
+    <ion-item no-lines padding text-wrap>
+
+      <div class="apartments-header">
+        2900 on First Apartment
+      </div>
+      <p>2900 First Eve, Seattle, WA, 98121</p>
+
+    </ion-item>
+
+    <ion-item no-lines padding text-wrap>
+
+      <div class="apartments-header">
+        2900 on First Apartment
+      </div>
+      <p>2900 First Eve, Seattle, WA, 98121</p>
+
+    </ion-item>
+
+
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+  <div class="cart-btn" (click)="goToCheckOut()">
+    <img src="assets/icon/Common/_Cart.png" />
+    <div>
+      <span>Review Cart</span>
+    </div>
+  </div>
+  <div class="proceed-btn" (click)="gotoPayment()">
+    <span>Proceed to checkout</span>
+    <div class="proceed-btn-right-item">
+      <div>
+        <span>$ 80</span>
+      </div>
+      <ion-icon name='ios-arrow-forward'></ion-icon>
+      <!-- <img src="assets/icon/Common/Next White.png" /> -->
+    </div>
+  </div>
+</ion-footer>

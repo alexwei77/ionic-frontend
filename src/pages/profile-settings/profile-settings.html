@@ -1,0 +1,96 @@
+<ion-header>
+
+  <ion-navbar #navBar>
+    <button ion-button menuToggle>
+      <span class="menu">
+        <img src="assets/icon/Common/_Menu.png" />
+      </span>
+    </button>
+    <div class="navbar-header">
+      <div class="header-house">
+        <div>
+          <span class="header-house-line">Settings</span>
+        </div>
+      </div>
+    </div>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding id="content">
+
+  <ion-list>
+    <ion-item no-lines class="pet-photo" text-wrap (click)="chooseImage()">
+        <ion-icon ios="ios-camera" md="md-camera"></ion-icon>
+      <div class="text">
+        Tap here to choose your photo
+      </div>
+    </ion-item>
+  </ion-list>
+
+
+  <ion-list>
+    <ion-item no-lines text-wrap class="email">
+      <div class="header">
+        <span class="left">
+          <ion-icon name="ios-mail-outline"></ion-icon>
+          Your E-mail
+        </span>
+        <span class="right">
+          <p>{{userData.email}}</p>
+        </span>
+      </div>
+
+      <div class="input">
+
+        <h3>Type your new email</h3>
+
+        <input type="email" [(ngModel)]="newEmail">
+
+      </div>
+    </ion-item>
+    <button ion-button block (click)="changeEmail()">Change Email</button>
+  </ion-list>
+
+  <ion-list>
+    <ion-item no-lines text-wrap class="email">
+      <div class="header">
+        <span class="left">
+          <ion-icon name="ios-lock-outline"></ion-icon>
+          Password
+        </span>
+      </div>
+
+      <div class="input">
+
+        <h3>Type current password</h3>
+
+        <input type="password" [(ngModel)]="passwords.curpassword">
+
+      </div>
+
+
+      <div class="input">
+
+        <h3>Type new password</h3>
+
+        <input type="password" [(ngModel)]="passwords.password">
+
+      </div>
+
+      <div class="input">
+
+        <h3>Confirm new password</h3>
+
+        <input type="password" [(ngModel)]="passwords.cpassword">
+
+      </div>
+
+
+    </ion-item>
+    <button ion-button block (click)="changePassword()">Change Password</button>
+  </ion-list>
+
+
+</ion-content>

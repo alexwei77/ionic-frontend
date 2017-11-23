@@ -1,0 +1,60 @@
+      <!--Attentsion search on this page comment whith "checked "-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <span class="menu">
+        <img src="assets/icon/Common/_Menu.png" />
+      </span>
+    </button>
+    <div class="navbar-header">
+      <div class="header-address">
+        <div *ngIf="!isSearch">
+          <span class="header-address-line">My Checklist</span>
+        </div>
+      </div>
+      <!--<span class="header-right-area">
+        <ion-searchbar [hidden]="!isSearch" (ionBlur)="toggle()"></ion-searchbar>
+        <img *ngIf="!isSearch" (click)="toggle();SetSearchBarFocus()" src="assets/icon/Common/Search%20Inactive.png" />
+        <img *ngIf="!isSearch" src="assets/icon/Common/Cart.png" (click)="gotoCartPage()" />
+        <ion-badge>12312312</ion-badge>
+      </span>-->
+    </div>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="content">
+  <ion-list>
+  <!-- Item start-->
+    <ion-item-sliding *ngFor="let item of items; let i=index">
+
+      <ion-item [ngClass]="item.new ? 'product-item active' : 'product-item'" (click)="browse(item)" ><!--Browse item-->
+
+        <div class="card">
+              <div class="card_info">
+                <img [src]="item.image" class="product-item-img" />
+                <div class="service_info">
+                    <h2>
+                   {{item.name}}
+                  </h2>
+
+                </div>
+
+              </div>
+              <ion-item>
+              <ion-checkbox [disabled]="true" [(ngModel)]="item.new"></ion-checkbox>
+
+              </ion-item>
+        </div>
+      </ion-item>
+
+    </ion-item-sliding>
+  <!-- Item Finish-->
+
+  <!-- Item Finish-->
+  </ion-list>
+    <ion-footer>
+    <div>
+        <button ion-button full primary (click)="goToCart()">Checkout</button>
+    </div>
+</ion-footer>
+
+</ion-content>

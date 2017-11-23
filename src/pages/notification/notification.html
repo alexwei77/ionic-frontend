@@ -1,0 +1,51 @@
+<ion-header>
+
+  <ion-navbar #navBar>
+    <button ion-button menuToggle>
+        <span class="menu">
+          <img src="assets/icon/Common/_Menu.png" />
+        </span>
+    </button>
+    <div class="navbar-header">
+      <div class="header-house">
+        <div>
+          <span class="header-house-line">Notifications</span>
+        </div>
+      </div>
+      <ion-icon item-right name="ios-eye-outline">
+
+      </ion-icon>
+      <span class="mark"> Mark all as read</span>
+    </div>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding id="content">
+
+  <ion-list>
+    <ion-item no-lines text-wrap padding *ngFor="let notification of notifications;let index=index" (click)="readNotification(notification,index)">
+
+      <div class="badge">
+
+      </div>
+
+      <div class="unread">
+
+        <div [ngClass]="!notification.isRead ? 'unread-header' : ''">
+          {{notification.order[0].date}}
+        </div>
+
+        <p padding-top>
+          Offer and discounts for you today. Grab special festive rates on selected groceries today! (Static Data)
+        </p>
+
+      </div>
+
+    </ion-item>
+
+
+  </ion-list>
+
+</ion-content>

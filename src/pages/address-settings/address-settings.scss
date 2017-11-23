@@ -1,0 +1,241 @@
+page-address-settings {
+  ion-navbar {
+    border-bottom: 1px solid #c8c7cc;
+    .back-button {
+      padding-left: 16px;
+    }
+    .toolbar-background {
+      background-color: color($colors, white);
+    }
+    .edit-address {
+      width: 12px;
+    }
+    .navbar-header {
+      margin-left: 10px;
+      display: flex;
+      justify-content: space-between;
+      margin-right: 16px;
+      margin-bottom: 4px;
+      align-items: center;
+    }
+    .header-address {
+      &-label {
+        margin-bottom: 4px;
+      }
+      &-line {
+        color: color($colors, orange);
+        font-size: 1.7rem;
+      }
+    }
+  }
+  .page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 16px;
+    &-name {
+      display: flex;
+      align-items: center;
+      &-text {
+        margin-left: 16px;
+        font-size: 12px;
+      }
+    }
+    &-item {
+      padding: 0;
+    }
+  }
+  .footerContent {
+    .scroll-content {
+      // padding-top: 0px;
+      margin-bottom: 0px !important;
+    }
+  }
+  .content {
+    background-color: color($colors, light);
+    .scroll-content {
+      padding-top: 0px; //margin-bottom: 0px !important;
+    }
+    ion-item {
+      margin: $content-margin;
+      width: auto;
+      border: 0;
+      background-color: color($colors, white);
+      box-shadow: 0 0 6px 1px color($colors, grey);
+      ion-label {
+        display: flex;
+        div {
+          margin-top: 0px;
+        }
+        span {
+          font-size: 13px;
+          color: color($colors, gray);
+        }
+      }
+      img {
+        margin-right: 15px;
+        width: 20px;
+        height: 25px;
+      }
+      .item-inner {
+        border: 0;
+      }
+    }
+    .add-address {
+      margin-top: 30px;
+      span {
+        color: black;
+      }
+      .plus-sign {
+        font-size: 25px;
+        color: color($colors, primary);
+        margin-right: 15px;
+      }
+    }
+  }
+  #contact {
+    ion-item {
+      align-items: center;
+      margin: 0px;
+      padding: 0px;
+      text-align: center;
+      width: 100%;
+      .item-inner {
+        padding: 0px;
+        text-align: center;
+      }
+      button {
+        padding: 15px;
+        span {
+          font-size: 10px;
+          font-weight: bold;
+          color: color($colors, orange);
+        }
+      }
+    }
+    .btn-select {
+      background: color($colors, orange);
+      span {
+        font-size: 10px;
+        font-weight: bold;
+        color: white;
+      }
+    }
+    .contactinput {
+      padding: 10px 15px;
+      width: 75%;
+      font-size: 12px;
+      border: 1px solid grey;
+      border-radius: 25px;
+    }
+    ion-label {
+      display: block !important;
+    }
+  }
+  #addressDisplay {
+    ion-item {
+      padding: 0px;
+    }
+    ion-icon {
+      font-size: 25px;
+    }
+  }
+  .colorOrange {
+    color: color($colors, orange);
+  }
+  .colorGray {
+    color: color($colors, gray);
+  }
+  .footerContent {
+    .cart-btn {
+      display: flex;
+      padding: 10px 30px;
+      div {
+        padding-top: 6px;
+      }
+      span {
+        color: color($colors, primary);
+        font-size: 1.5em;
+        margin-left: 20px;
+      }
+    }
+    .cart-btn:hover {
+      background-color: color($colors, grey);
+    }
+    .proceed-btn {
+      padding: 10px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: color($colors, primary);
+      color: white;
+      font-size: 1.5em;
+      &-right-item {
+        display: flex;
+        div {
+          padding-top: 6px;
+          margin-right: 10px;
+        }
+      }
+    }
+    .proceed-btn::hover {
+      background-color: color($colors, grey);
+    }
+  }
+  #addAddress {
+    background-color: color($colors, light);
+    ion-card {
+      margin-top: 20px;
+      padding: 30px 30px;
+      p {
+        color: color($colors, primary);
+        margin-left: 15px;
+      }
+      .input-has-focus {
+        border-color: color($colors, primary); // border-radius: 20px;
+      }
+      ion-item {
+        margin-bottom: 20px;
+        border-radius: 20px;
+        border: 1px solid color($colors, gray);
+        .gplace-input {
+          border: none;
+          width: 100%;
+        }
+      }
+    }
+  }
+  .searchbar-md {
+    padding: 0px !important;
+    background: none !important;
+  }
+  .apartmentField {
+    float: right;
+    height: 30px;
+    width: 80px;
+    border-radius: 30px;
+    position: relative;
+    top: -37px;
+    right: 10px;
+    text-align: center;
+    border: 1px solid #999;
+  }
+  .texttransformNormal {
+    text-transform: initial !important;
+  }
+  .borderbottomgray {
+    border-bottom: 1px solid #999;
+  }
+  .activebutton {
+    background-color: color($colors, orange) !important;
+  }
+  .text_center {
+    text-align: center;
+  }
+  .active {
+    border: 1px solid orange !important;
+  }
+  ion-searchbar.searchbar {
+      background: none;
+  }
+}

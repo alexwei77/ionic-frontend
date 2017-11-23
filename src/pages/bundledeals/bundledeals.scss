@@ -1,0 +1,48 @@
+page-bundledeals {
+    ion-item{
+        margin-bottom: 16px!important;
+        box-shadow: 0 0 6px 1px #c2c2c2!important;
+        padding-left: 0px!important;
+        .item-inner{
+            padding-right:0px!important;
+            ion-label{
+                margin: 0px;
+            }
+        }
+    }
+    ion-content{
+        background-color: #f9f9f9!important;
+    }
+    .item-name {
+        text-align: center;
+        padding: 15px 10px;
+    }
+    .item-deal {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+        align-items: center;
+        padding: 15px 7px;
+        border-top: 1px solid $silver-border;
+        .item-deal-subtitle {
+            margin-right: auto;
+            color: color($colors, grey);
+            padding-left: 5px;
+          
+        }
+        img{
+            max-width: 30px;
+            margin-right: 5px;
+            &.vertical-img{
+                max-height: 30px;
+            }
+        }
+        .item-deal-button{
+            color: color($colors, orange);
+            background: transparent;
+            ion-icon{
+                margin-left: 5px;
+            }
+        }
+    }
+}

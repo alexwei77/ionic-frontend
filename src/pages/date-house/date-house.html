@@ -1,0 +1,100 @@
+<ion-header>
+
+  <ion-navbar #navBar>
+    <ion-item no-lines class="navbar-header">
+      <div class="header-address">
+        <div>
+          <span class="header-address-line">Back</span>
+        </div>
+      </div>
+    </ion-item>
+  </ion-navbar>
+
+  <ion-item class="page-header-item">
+    <div class="page-header">
+      <span class="page-header-name">
+        <span class="page-header-name-text">Select Date and Time</span>
+      </span>
+    </div>
+  </ion-item>
+</ion-header>
+
+
+<ion-content padding id="content">
+
+  <ion-list class="calendar">
+    <ion-item class="date">
+      <my-date-picker name="mydate" [options]="calendarOptions" [(ngModel)]="selDate" (dateChanged)="onDateChanged($event)" class="pet-datepicker"></my-date-picker>
+      <!-- <img src="assets/icon/Common/Prev.png" (click)="prevDate()" item-left />
+      <span (click)="disableWeekdays()">{{startDate | date }}</span>
+      <img src="assets/icon/Common/Next.png" (click)="nextDate()" item-right /> -->
+    </ion-item>
+
+
+    <div class="range">
+      <ion-item>
+        <span item-left class="left">
+          <p>
+            10 AM - 5 PM
+          </p>
+        </span>
+        <span item-right class="right">
+          <button ion-button round >
+            Closer to 10am
+          </button>
+          <button ion-button round>
+            Closer to 5pm
+          </button>
+        </span>
+      </ion-item>
+    </div>
+
+
+  </ion-list>
+
+  <ion-list no-lines>
+
+    <ion-list-header>
+      <div class="image">
+        <div class="cal">
+          <img src="assets/icon/Common/Calendar.png" />
+        </div>
+        <span class="text">
+          Subscribe and save
+        </span>
+      </div>
+    </ion-list-header>
+
+    <ion-item text-wrap class="subscribe" no-lines>
+      <div class="content">
+        <p>You will unlock 15% savings by subscribing to regular cleaning</p>
+      </div>
+      <div class="inputs">
+        <select>
+          <option value="Once">Once</option>
+        </select>
+        <select>
+          <option value="Week">Week</option>
+        </select>
+      </div>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+
+
+  <div class="proceed-btn" (click)="gotoOrderSummany()">
+    <span>Proceed to Payment</span>
+    <div class="proceed-btn-right-item">
+      <div>
+        <span>$ {{price}}</span>
+      </div>
+      <ion-icon name='ios-arrow-forward'></ion-icon>
+      <!-- <img src="assets/icon/Common/Next White.png" /> -->
+    </div>
+  </div>
+
+</ion-footer>

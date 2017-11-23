@@ -1,0 +1,82 @@
+<ion-header>
+
+  <ion-navbar #navBar>
+    <button ion-button menuToggle>
+        <span class="menu">
+          <img src="assets/icon/Common/_Menu.png" />
+        </span>
+    </button>
+    <div class="navbar-header">
+      <div class="header-house">
+        <div>
+          <span class="header-house-line">Recent Orders</span>
+        </div>
+      </div>
+    </div>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding id="content">
+
+  <ion-list>
+
+    <div class="container" *ngFor="let order of orders">
+      <div class="header" padding>
+        <ion-icon name="ios-pizza-outline"></ion-icon>
+        <span>{{order.serviceCategotySlug}}</span>
+      </div>
+
+      <div class="description" padding>
+        <h5>Order Number: {{order._id}}</h5>
+        <p>{{getDayFromDate(order.createDate)}}</p>
+      </div>
+
+      <div class="buttons">
+        <ion-row>
+          <ion-col col-4 no-padding class='border-right'>
+            <button ion-button block no-margin clear color="dark">View Details</button>
+          </ion-col>
+          <ion-col col-4 no-padding class='border-right'>
+            <button ion-button block no-margin clear>Re-order</button>
+          </ion-col>
+          <ion-col col-4 no-padding>
+            <button ion-button block no-margin clear (click)="gotoMatchPage(order._id)">Match</button>
+          </ion-col>
+        </ion-row>
+        <!-- <div class="button-details">
+          View Details
+        </div>
+        <span class="button-reorder">
+          Re-order
+        </span> -->
+      </div>
+    </div>
+
+    <!-- <div class="container">
+      <div class="header" padding>
+        <ion-icon name="ios-pizza-outline"></ion-icon>
+        <span>Grocery Name</span>
+      </div>
+
+      <div class="description" padding>
+        <h5>Order Number: 1083749823</h5>
+        <p>January 22, 10:15AM</p>
+      </div>
+
+      <div class="buttons">
+        <div class="button-details">
+          View Details
+        </div>
+        <span class="button-reorder">
+          Re-order
+        </span>
+      </div>
+    </div> -->
+
+
+
+  </ion-list>
+
+</ion-content>

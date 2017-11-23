@@ -1,0 +1,15 @@
+<ion-content padding id="productsContent">
+  <ion-list>
+    <ion-item *ngFor="let item of items" class="product-item" (click)="browse(item)" [hidden]="!item.name">
+      <img item-right [src]="item.image" class="product-item-img" />
+      <h2>
+        {{item.name}}
+      </h2>
+      <div class="product-item-content">
+        {{item.description}}
+      </div>
+      <a class="product-item-link">{{item.title}}
+        <img src="assets/icon/Common/Next.png" class="product-item-next-img" /></a>
+    </ion-item>
+  </ion-list>
+</ion-content>

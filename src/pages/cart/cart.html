@@ -1,0 +1,432 @@
+<!--
+  Generated template for the Cart page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar #navBar>
+    <div class="navbar-header">
+      <div class="header-address">
+        <div *ngIf="!isSearch">
+          <span *ngIf="modify==false" class="header-address-line">My Cart</span>
+          <br>
+          <span *ngIf="modify" class="header-address-line">Modify Cart</span>
+          <br>
+          <!-- <span class="header-cart-detail">{{shops.length}}&nbsp;&nbsp; stores {{cartService.itemsinCart}} items</span> -->
+        </div>
+      </div>
+      <!-- <span class="header-right-area">
+        <ion-searchbar [hidden]="!isSearch" (ionBlur)="toggle()" [(ngModel)]="searchService.search"></ion-searchbar>
+        <img *ngIf="!isSearch" (click)="toggle();SetSearchBarFocus()" src="assets/icon/Common/Search%20Inactive.png" />
+        <img *ngIf="!isSearch" src="assets/icon/Common/Cart.png" />
+        <ion-badge *ngIf="!isSearch">{{cartService.itemsinCart}}</ion-badge>
+      </span> -->
+    </div>
+  </ion-navbar>
+  <ion-item class="page-header-item text_center">
+    <div class="page-header">
+      <span class="page-header-name">
+        <span class="page-header-name-text"> Subtotal ({{totalNumberOfOrders}} items)
+          <span class="text_orange">$ {{totalprice}}</span>
+        </span>
+      </span>
+    </div>
+  </ion-item>
+</ion-header>
+
+
+<ion-content padding id="content">
+
+  <div *ngIf="petServiceList.length != 0">
+    <ion-list class="cartRow">
+      <div class="cart_wrapper">
+        <ion-row>
+          <ion-col col-12 ion-item>
+            <ion-icon item-start>
+              <img class="width22" src="assets/icon/Common/PetSevices.png">
+            </ion-icon>
+            Pet Services
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-list>
+    <ion-item-sliding class="cartList"  *ngFor="let petService of petServiceList; let i=index">
+      <ion-item>
+
+        <div class="cartList" *ngFor="let pet of petService.petdata; let index = index">
+            <div *ngIf="pet.service.name == 'Dog Walking'">
+
+          <ion-row>
+            <ion-col col-3>
+              <div class="row" class="no_padding">
+                <div style="width: 100%;display: flex;flex-wrap: wrap;">
+                  <div class="service">
+                    <span item-left>
+                      <img class="image" src="http://192.241.167.128/public/images/Pet/DogWalking.png">
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </ion-col>
+            <ion-col col-6>
+              <ion-row>
+                <span class="text_orange bookingDate">Dog Walking</span>
+              </ion-row>
+              <ion-row >
+                  <div>
+                <ion-col col-1></ion-col>
+                <ion-col col-4 style="padding-left:0px;color: #c2c2c2;">{{pet.pet.name}}</ion-col>
+                <ion-col col-3 style="padding-left:0px;color: #c2c2c2;">${{pet.service.price}}</ion-col>
+                </div>
+              </ion-row>
+            </ion-col>
+            <ion-col col-3>
+              <ion-row style="justify-content:center">
+                <!-- <div class="showCartDate" (click)="goToDate(petService, i)">Select Time</div> -->
+                <div class="showCartDate" (click)="goToDate(petService, i,index)">{{!(pet?.jsDate) || (pet?.jsDate) == '' ? 'Select Time' : getDayFromDate(pet.jsDate)       }}
+                </div>
+              </ion-row>
+              <!-- <ion-row style="justify-content:center">
+                <div class="text_orange bookingDate">{{petService?.date?.day}}.{{petService?.date?.month}}.{{petService?.date?.year}}</div>
+              </ion-row> -->
+              <ion-row style="justify-content:center">
+                <div class="text_orange bookingDate" style="margin-left: 0px;font-size: 15px;color:#c2c2c2;">
+                  <span class="text-right">
+                    10am - 5pm
+                  </span>
+                </div>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <ion-row class="text_orange totalRow">
+              <ion-col col-9 class="no_padding">
+                Total
+              </ion-col>
+              <ion-col col-3 class="no_padding">
+                <div> $ {{pet.service.price}}</div>
+              </ion-col>
+            </ion-row>
+            </div>
+
+        </div>
+
+        <div class="cartList1" *ngFor="let pet of petService.petdata; let index = index">
+            <div *ngIf="pet.service.name == 'Pet Visit'">
+          <ion-row >
+
+            <ion-col col-3>
+              <div class="row" class="no_padding">
+                <div style="width: 100%;display: flex;flex-wrap: wrap;">
+                  <div class="service">
+                    <span item-left>
+                      <img class="image" src="http://192.241.167.128/public/images/Pet/DropInVisit.png">
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </ion-col>
+            <ion-col col-6>
+              <ion-row>
+                <span class="text_orange bookingDate">Pet Visit</span>
+              </ion-row>
+              <ion-row >
+
+                <ion-col col-1></ion-col>
+                <ion-col col-4 style="padding-left:0px;color: #c2c2c2;">{{pet.pet.name}}</ion-col>
+                <ion-col col-3 style="padding-left:0px;color: #c2c2c2;">${{pet.service.price}}</ion-col>
+
+              </ion-row>
+            </ion-col>
+            <ion-col col-3>
+              <ion-row style="justify-content:center">
+                <!-- <div class="showCartDate" (click)="goToDate(petService, i)">Select Time</div> -->
+
+                <!-- <div class="showCartDate" (click)="goToDate(petService, i)">{{!(petService?.date?.day) || (petService?.date?.day) == '' ? 'Select Time' : (petService?.date?.day)+'.'+(petService?.date?.month)+'.'+(petService?.date?.year)
+                  }}
+                </div> -->
+                <div class="showCartDate" (click)="goToDate(petService, i,index)">{{!(pet?.jsDate) || (pet?.jsDate) == '' ? 'Select Time' : getDayFromDate(pet.jsDate)       }}
+              </div>
+              </ion-row>
+              <!-- <ion-row style="justify-content:center">
+                <div class="text_orange bookingDate">{{petService?.date?.day}}.{{petService?.date?.month}}.{{petService?.date?.year}}</div>
+              </ion-row> -->
+              <ion-row style="justify-content:center">
+                <div class="text_orange bookingDate" style="margin-left: 0px;font-size: 15px;color:#c2c2c2;">
+                  <span class="text-right">
+                    10am - 5pm
+                  </span>
+                </div>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+
+          <ion-row class="text_orange totalRow">
+              <ion-col col-9 class="no_padding">
+                Total
+              </ion-col>
+              <ion-col col-3 class="no_padding">
+                <div> $ {{pet.service.price}}</div>
+              </ion-col>
+            </ion-row>
+          </div>
+        </div>
+      </ion-item>
+      <ion-item-options icon-start (ionSwipe)="deleteCart(petServiceList, i)">
+        <button color="orange" ion-button expandable (click)="deleteCart(petServiceList, i)">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </div>
+  <div *ngIf="housecleaingList.length != 0">
+    <ion-list class=" cartRow">
+      <div class="cart_wrapper">
+        <ion-row>
+          <ion-col col-12 ion-item>
+            <ion-icon item-start>
+              <img class="width22" src="assets/icon/Common/House CLeaning.png">
+            </ion-icon>
+            HouseCleaning
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-list>
+    <ion-item-sliding class="cartList" *ngFor="let item of housecleaingList; let i=index">
+      <ion-item>
+        <ion-row>
+          <ion-col col-3>
+            <div class="row" class="no_padding">
+              <div style="width: 100%;display: flex;flex-wrap: wrap;">
+                <div class="service">
+                  <span item-left>
+                    <img class="image" src="assets/icon/Common/House CLeaning.png">
+                  </span>
+                </div>
+              </div>
+            </div>
+          </ion-col>
+          <ion-col col-6.5>
+            <ion-row>
+              <div class="row" class="no_padding">
+                <div style="width: 100%;display: flex;flex-wrap: wrap;">
+                  <div>
+                    <img class="floatLeft" src="assets/icon/Common/bed.png">
+                    <span style="padding-left:0px;color: #c2c2c2;" class="titlename">{{item.bedroom}} Bdrs</span>
+                  </div>
+                  <div>
+                    <img class="floatLeft" src="assets/icon/Common/bath.png">
+                    <span style="padding-left:0px;color: #c2c2c2;" class="titlename">{{item.bathroom}} Bths</span>
+                  </div>
+                </div>
+              </div>
+            </ion-row>
+          </ion-col>
+          <ion-col col-3>
+            <ion-row style="justify-content:center">
+              <!-- <div class="showCartDate" (click)="goToDate(item, i)">{{!(item?.date?.day) || (item?.date?.day) == '' ? 'Select Time' : (item?.date?.day)+'.'+(item?.date?.month)+'.'+(item?.date?.year)
+                }}
+              </div> -->
+
+              <div class="showCartDate" (click)="goToDate(item, i)">{{!(item?.jsDate) || (item?.jsDate) == '' ? 'Select Time' : getDayFromDate(item.jsDate)       }}
+              </div>
+              <!-- <div class="showCartDate" (click)="goToDate(item, i)">{{(item?.date?.day) == '' ? ((item?.date?.day).(item?.date?.month).(item?.date?.year)) : 'Select Time'}}</div> -->
+            </ion-row>
+            <!-- <ion-row style="justify-content:center">
+                                <div class="text_orange bookingDate"> {{item?.date?.day}}.{{item?.date?.month}}.{{item?.date?.year}}</div>
+                            </ion-row> -->
+            <ion-row style="justify-content:center">
+              <div class="text_orange bookingDate" style="margin-left: 0px;font-size: 15px;color:#c2c2c2;">
+                <span class="text-right">
+                  10am - 5pm
+                </span>
+              </div>
+            </ion-row>
+
+          </ion-col>
+        </ion-row>
+        <ion-row class="text_orange totalRow">
+          <ion-col col-9 class="no_padding">
+            Total
+          </ion-col>
+          <ion-col col-3 class="no_padding">
+            <div> $ {{item.total}}</div>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+      <ion-item-options icon-start (ionSwipe)="deleteCart(housecleaingList, i)">
+        <button color="orange" ion-button expandable (click)="deleteCart(housecleaingList, i)">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </div>
+  <!-- <ion-list class=" cartRow">
+                <button ion-item>
+                    <ion-icon item-start>
+                        <img class="width22" src="assets/icon/Common/PetSevices.png">
+                    </ion-icon>
+                    Dog 1
+                </button>
+            </ion-list>
+            <div class="cartList">
+                <ion-row>
+                    <ion-col col-8>
+                        <div class="row" class="no_padding">
+                            <div style="width: 100%;display: flex;flex-wrap: wrap;">
+                                <div>
+                                    <img class="floatLeft" src="assets/icon/Common/bed.png">
+                                    <span class="titlename">3 Bdrs</span>
+                                </div>
+                                <div>
+                                    <img class="floatLeft" src="assets/icon/Common/bath.png">
+                                    <span class="titlename">5 Bths</span>
+                                </div>
+                            </div>
+                        </div>
+                    </ion-col>
+                    <ion-col col-4 class="no_padding">
+                        <div class="showCartDate"> 10am - 5pm</div>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="paddingbottom10">
+                    <ion-col col-8>
+                        <div class="Title">Philipa Brais</div>
+                    </ion-col>
+                    <ion-col col-4 class="no_padding">
+                        <div class="text_orange bookingDate"> 30.07.2017</div>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="text_orange totalRow">
+                    <ion-col col-9 class="no_padding">
+                        Total
+                    </ion-col>
+                    <ion-col col-3 class="no_padding">
+                        <div> $ 20</div>
+                    </ion-col>
+                </ion-row>
+            </div>
+
+            <ion-list class=" cartRow">
+                <button ion-item>
+                    <ion-icon item-start>
+                        <img class="width22" src="assets/icon/Common/PetSevices.png">
+                    </ion-icon>
+                    Dog 1
+                </button>
+            </ion-list>
+            <div class="cartList">
+                <ion-row>
+                    <ion-col col-8>
+                        <div class="row" class="no_padding">
+                            <div style="width: 100%;display: flex;flex-wrap: wrap;">
+                                <div>
+                                    <img class="floatLeft" src="assets/icon/Common/bed.png">
+                                    <span class="titlename">3 Bdrs</span>
+                                </div>
+                                <div>
+                                    <img class="floatLeft" src="assets/icon/Common/bath.png">
+                                    <span class="titlename">5 Bths</span>
+                                </div>
+                            </div>
+                        </div>
+                    </ion-col>
+                    <ion-col col-4 class="no_padding">
+                        <div class="showCartDate"> 10am - 5pm</div>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="paddingbottom10">
+                    <ion-col col-8>
+                        <div class="Title">Philipa Brais</div>
+                    </ion-col>
+                    <ion-col col-4 class="no_padding">
+                        <div class="text_orange bookingDate"> 30.07.2017</div>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="text_orange totalRow">
+                    <ion-col col-9 class="no_padding">
+                        Total
+                    </ion-col>
+                    <ion-col col-3 class="no_padding">
+                        <div> $ 20</div>
+                    </ion-col>
+                </ion-row>
+            </div> -->
+
+  <!--<ion-list *ngFor="let shopname of shops">
+        <ion-item class="shop-title">
+            <img src="assets/icon/Common/Shop.png" />
+            <div>
+                <span>{{shopname}}</span>
+            </div>
+            <div>
+                <span>&nbsp;&nbsp;&nbsp;{{delDate|date:'MMM dd, yyyy'}}{{delTime}}</span>
+            </div>
+        </ion-item>
+        <ion-item *ngFor="let item of getItems(shopname)">
+            <span item-left class="image">
+                <img class="category-item-image"  src="{{item.itemimage}}" />
+            </span>
+            <div class="cart-item">
+                <ion-grid>
+                    <ion-row>
+                        <ion-col col-8>
+                            <h2>{{item.name}}</h2>
+                            <h3>$ {{item.price}} each</h3>
+                            <h4>- 0.61 lbs</h4>
+                        </ion-col>
+                        <ion-col col-4>
+                            <div class="cart-item-count">
+                                <span (click)="decrease(item)">-</span>
+                                <span class="count">{{item.count}}</span>
+                                <span (click)="increase(item)">+</span>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </div>
+        </ion-item>
+    </ion-list>-->
+</ion-content>
+
+<ion-footer>
+  <div *ngIf="modify==false">
+    <button ion-button full primary (click)="gotoDateTimePage()">Checkout</button>
+  </div>
+  <div *ngIf="modify">
+    <div class="btn">
+      <span>Subtotal ({{totalNumberOfOrders}} items)</span>
+      <div class="btn-right-item">
+        <div>
+          <span>$ {{totalprice}}</span>
+        </div>
+      </div>
+    </div>
+    <ion-row class="no_padding">
+      <ion-col class="no_padding" col-6>
+        <div class="btn proceed" (click)="continueShopping()">
+          <span>Continue Shopping</span>
+          <!-- <div class="btn-right-item">
+                  <div>
+                      <span>Proceed to checkout</span>
+                  </div>
+                  <img src="assets/icon/Common/Next White.png" />
+              </div> -->
+        </div>
+      </ion-col>
+      <ion-col class="no_padding" col-6>
+        <div class="btn proceed" (click)="gotoAddressPage()">
+          <div class="btn-right-item">
+            <div>
+              <span>Proceed to checkout </span>
+              <span class="forwordicon">
+                <ion-icon name="ios-arrow-forward"></ion-icon>
+              </span>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+
+  </div>
+</ion-footer>

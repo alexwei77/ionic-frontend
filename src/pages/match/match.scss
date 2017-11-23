@@ -1,0 +1,112 @@
+page-match {
+  ion-navbar {
+    .menu {
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    border-bottom: 1px solid #c8c7cc;
+    .back-button {
+      padding-left: 16px;
+    }
+    .toolbar-background {
+      background-color: color($colors, white);
+    }
+    .edit-address {
+      width: 12px;
+    }
+    .navbar-header {
+      margin-left: 10px;
+      display: flex;
+      justify-content: space-between;
+      margin-right: 16px;
+      margin-bottom: 4px;
+      align-items: center;
+    }
+    .header-house {
+      &-label {
+        margin-bottom: 4px;
+      }
+      &-line {
+        color: color($colors, orange);
+        font-size: 1.7rem;
+      }
+    }
+    .header-right-area {
+      padding-right: 10px;
+      ion-icon {
+        width: 25px;
+        height: 25px;
+      }
+      .second {
+        margin-left: 15px;
+      }
+    }
+  }
+  #content {
+    background-color: color($colors, light);
+    .circle {
+      width: 15px;
+      height: 15px;
+      position: absolute;
+      left: 12px;
+      top: 12px;
+      border: 2px solid white;
+      z-index: 999;
+      border-radius: 50%;
+      background-color: yellow;
+    }
+    ion-list {
+      box-shadow: 0 0 6px 1px color($colors, grey);
+      .header {
+        border-bottom: 1px solid $silver-border;
+        ion-item {
+          p {
+            color: orange;
+          }
+          .your-match {
+            line-height: 30px;
+            text-align: center;
+            width: 70px;
+            background-color: color($colors, orange);
+            color: white;
+            border-radius: 15px;
+            font-size: 12px;
+          }
+        }
+      }
+      ion-item {
+        img {
+          border-radius: 50%;
+        }
+        ion-icon {
+          font-size: 18px;
+          color: color($colors, orange);
+          span {
+            padding-left: 20px;
+          }
+        }
+        h2 {
+          padding-top: 10px;
+        }
+        p {
+          padding-top: 10px;
+          span {
+            font-weight: bold;
+            padding-left: 10px;
+          }
+        }
+      }
+      .product-item-link {
+        padding-top: 10px; // text-align: center;
+        color: color($colors, orange);
+        margin-left: 50%;
+        ion-icon {
+          padding-left: 10px;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}

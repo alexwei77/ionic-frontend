@@ -1,0 +1,107 @@
+<ion-header no-border>
+
+  <ion-navbar #navBar *ngIf="userData">
+    <button ion-button menuToggle>
+      <span class="menu">
+        <img src="assets/icon/Common/_Menu.png" />
+      </span>
+    </button>
+    <div class="navbar-header">
+      <div class="header-house">
+        <div>
+          <span class="header-house-line">Menu</span>
+        </div>
+      </div>
+    </div>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding id="content">
+
+  <div class="wrapper userThankYou" *ngIf="userData">
+
+    <ion-item class="thank" no-lines text-wrap padding>
+
+      <img src="assets/icon/Common/calendar.png" alt="">
+
+      <h5>
+        Order id: 12736713268 (static. Haresh is working on it.)
+      </h5>
+
+      <h2>
+        Thank you!
+      </h2>
+
+      <p>Congratulations, now sit back and relax. Your order will be deliveried shortly</p>
+
+    </ion-item>
+
+  </div>
+
+  <div class="wrapper"  *ngIf="!userData">
+
+          <ion-item class="thank" no-lines text-wrap padding>
+
+            <img src="assets/icon/Common/calendar.png" alt="">
+
+            <h5>
+              Order id: 12736713268
+            </h5>
+
+            <h2>
+              Thank you!
+            </h2>
+
+            <p>We have received your order. Please log in right away to track, cancle or modify</p>
+
+            <button ion-button round (click)=signup()>
+              Sign Up
+            </button>
+
+            <div class="login-bnt">
+              <button ion-button round color="light" (click)="login()">
+                Log in
+              </button>
+            </div>
+
+
+          </ion-item>
+
+          <ion-item class="sign" no-lines text-wrap>
+
+            <div class="header">
+              <h3>Please sign up or sign in to</h3>
+            </div>
+
+            <div class="options">
+
+              <span class="left">
+                <p>
+                  <ion-icon name="checkmark"></ion-icon>
+                  To see your match
+                </p>
+                <p>
+                  <ion-icon name="checkmark"></ion-icon>
+                  To receive orders
+                </p>
+              </span>
+              <span class="right">
+                <p>
+                  <ion-icon name="checkmark"></ion-icon>
+                  To track your orders
+                </p>
+                <p>
+                  <ion-icon name="checkmark"></ion-icon>
+                  To cancel or modify
+                </p>
+              </span>
+
+            </div>
+
+          </ion-item>
+
+        </div>
+
+</ion-content>

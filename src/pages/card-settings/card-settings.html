@@ -1,0 +1,46 @@
+<ion-header>
+
+  <ion-navbar #navBar>
+    <button ion-button menuToggle>
+      <span class="menu">
+        <img src="assets/icon/Common/_Menu.png" />
+      </span>
+    </button>
+    <div class="navbar-header">
+      <div class="header-house">
+        <div>
+          <span class="header-house-line">Settings</span>
+        </div>
+      </div>
+    </div>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding id="content">
+
+  <ion-item no-lines class="card" text-wrap *ngFor="let card of cards">
+
+    <span item-left>
+      <ion-icon name="ios-trash-outline" (click)="deleteCard(card)"></ion-icon>
+      <!-- <ion-icon name="ios-create-outline" class="create"></ion-icon> -->
+      <span>
+        XXXX XXXX XXXX {{card.last4}}
+      </span>
+    </span>
+    <span item-right>
+      {{card.name}}
+    </span>
+
+  </ion-item>
+
+
+</ion-content>
+<ion-footer no-border no-shadow>
+
+    <div ion-button full class = "btn" (click)="addCard()">Add New Card
+      <ion-icon name="ios-arrow-forward"></ion-icon>
+    </div>
+
+  </ion-footer>

@@ -1,0 +1,115 @@
+page-final {
+  ion-navbar {
+    .menu {
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    } // border-bottom: 1px solid #c8c7cc;
+    .back-button {
+      padding-left: 16px;
+    }
+    .toolbar-background {
+      background-color: color($colors, white);
+    }
+    .edit-address {
+      width: 12px;
+    }
+    .navbar-header {
+      margin-left: 10px;
+      display: flex;
+      justify-content: space-between;
+      margin-right: 16px;
+      margin-bottom: 4px;
+      align-items: center;
+    }
+    .header-house {
+      &-label {
+        margin-bottom: 4px;
+      }
+      &-line {
+        color: color($colors, orange);
+        font-size: 1.7rem;
+      }
+    }
+    .header-right-area {
+      padding-right: 10px;
+      ion-icon {
+        width: 25px;
+        height: 25px;
+      }
+      .second {
+        margin-left: 15px;
+      }
+    }
+  }
+  #content {
+    background-color: color($colors, light);
+    .wrapper {
+      margin-top: 10px;
+      background: white;
+      box-shadow: 0 0 6px 1px color($colors, grey); //   height: 80%;
+      ion-item {
+        &.thank {
+          border-bottom: 1px solid $silver-border;
+          text-align: center;
+          img {
+            height: 50px;
+          }
+          h5 {
+            padding-bottom: 5px;
+            color: grey;
+            font-size: 12px;
+          }
+          h2 {
+            padding-top: 5px;
+            color: color($colors, orange);
+          }
+          p {
+            padding-top: 5px;
+            color: color($colors, orange);
+          }
+          button {
+            margin-top: 10px;
+            height: 30px;
+            width: 100px;
+          }
+        }
+        &.sign {
+          .header {
+            text-align: center;
+            padding-top: 10px;
+            height: 50px;
+            width: 100%;
+
+          }
+          .options {
+            p {
+              color: color($colors, orange);
+            }
+            ion-icon {
+              vertical-align: middle;
+              padding-right: 3px;
+            }
+            .left {
+              float: left;
+            }
+            .right {
+              float: right;
+            }
+          }
+        }
+      }
+    }
+    .userThankYou{
+      padding-top: 130px;
+    }
+  }
+  button.button-md-light, button.button-ios-light {
+      background: white;
+      box-shadow: 0 2px 2px 0 rgba(6, 6, 6, 0.14), 0 3px 1px -2px #ffd9c0, 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  }
+  .item-md .item-button,.item-ios .item-button {
+    padding: 0 60px!important;
+  }
+}

@@ -1,0 +1,91 @@
+<!--
+  Generated template for the AddCardPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add New Card</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding id="content">
+
+  <ion-item>
+    <ion-row padding>
+      <ion-col col-12>
+        Card Holder Name
+      </ion-col>
+      <ion-col col-12>
+          <input type="text" [(ngModel)]="card.name" placeholder="Your Name" class="card-iput-field">
+      </ion-col>
+    </ion-row>
+    <ion-row padding>
+      <ion-col col-12>
+        <p>Card Number</p>
+      </ion-col>
+      <ion-col col-3>
+        <input type="number" [(ngModel)]="card_num1" placeholder="XXXX" onKeyPress="if(this.value.length==4) return false;" class="card-iput-field">
+      </ion-col>
+      <ion-col col-3>
+        <input type="number" [(ngModel)]="card_num2" placeholder="XXXX" onKeyPress="if(this.value.length==4) return false;" class="card-iput-field">
+      </ion-col>
+      <ion-col col-3>
+        <input type="number" [(ngModel)]="card_num3" placeholder="XXXX" onKeyPress="if(this.value.length==4) return false;" class="card-iput-field">
+      </ion-col>
+      <ion-col col-3>
+        <input type="number" [(ngModel)]="card_num4" placeholder="XXXX" onKeyPress="if(this.value.length==4) return false;" class="card-iput-field">
+      </ion-col>
+    </ion-row>
+
+    <ion-row padding>
+      <ion-col col-12>
+        <p>Expiration Date</p>
+      </ion-col>
+      <ion-col col-2>
+        <select [(ngModel)]="card.exp_month"  class="card-iput-field">
+          <option value="01">01</option>
+          <option value="02">02</option>
+          <option value="03">03</option>
+          <option value="04">04</option>
+          <option value="05">05</option>
+          <option value="06">06</option>
+          <option value="07">07</option>
+          <option value="08">08</option>
+          <option value="09">09</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select>
+      </ion-col>
+      <ion-col col-3>
+        <input type="number" [(ngModel)]="card.exp_year" onKeyPress="if(this.value.length==4) return false;" placeholder="YYYY" class="card-iput-field">
+      </ion-col>
+      <ion-col col-5>
+          <input class="card-iput-field" placeholder="CVV" [(ngModel)]="card.cvc">
+      </ion-col>
+    </ion-row>
+    <!-- <ion-row padding class="detail">
+      <ion-col col-2>
+
+      </ion-col>
+      <ion-col col-3>
+        <input class="card-iput-field" placeholder="ZIPCODE" [(ngModel)]="card.zipcode">
+      </ion-col>
+      <ion-col col-7>
+        <ion-row>
+          <ion-col col-2>
+            <img src="{{'assets/icon/Common/Padlock.png'}}" />
+          </ion-col>
+          <ion-col col-10>
+            <span>Your Card Details are secured via 128 Bit encryption</span>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row> -->
+    <button ion-button full (click)="saveCard()">Add Card</button>
+  </ion-item>
+</ion-content>

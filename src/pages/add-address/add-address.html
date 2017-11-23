@@ -1,0 +1,52 @@
+<!--
+  Generated template for the AddAddress page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+
+    <ion-navbar #navBar>
+        <div class="navbar-header">
+            <div class="header-address">
+                <div>
+                    <span class="header-address-line">Add New Address</span>
+                </div>
+            </div>
+        </div>
+    </ion-navbar>
+
+</ion-header> -->
+
+
+<!-- <ion-content id="content"> -->
+<form id="content" #loginForm="ngForm">
+    <ion-list>
+        <ion-card>
+            <p>Appartment Name</p>
+            <ion-item>
+                <ion-input type="text" name="name" [(ngModel)]="addressModel.appartment_name" required></ion-input>
+            </ion-item>
+            <!-- <p>Flat/House/Office no.</p>
+        <ion-item>
+          <ion-input type="number" name="flat_no" [(ngModel)]="addressModel.flat_no" required></ion-input>
+        </ion-item> -->
+            <p>Address</p>
+            <ion-item>
+                <input name="address" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" [(ngModel)]="addressModel.full_address" #search [formControl]="searchControl" class="gplace-input" required>
+                <!-- <ion-input type="text" name="address" [(ngModel)]="addressModel.address" #search [formControl]="searchControl" required></ion-input> -->
+            </ion-item>
+            <p>Zip Code</p>
+            <ion-item>
+                <ion-input type="number" name="zip_code" [(ngModel)]="addressModel.zip_code" required></ion-input>
+            </ion-item>
+        </ion-card>
+    </ion-list>
+    <!-- <ion-footer>  -->
+    <!-- <button ion-button block [disabled]="!loginForm.form.valid" (click)="submitAddress()">Add Address</button> -->
+    <!-- </ion-footer> -->
+</form>
+<ion-footer>
+    <button ion-button block [disabled]="false" (click)="submitAddress()">Add Address</button>
+</ion-footer>
+<!-- </ion-content> -->
